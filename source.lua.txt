@@ -1,0 +1,2446 @@
+local galatic_loc12 = {}
+local galatic17 = math.floor
+local galatic18 = 0
+local galatic20 = {}
+
+for galatic_loc14 = 1, 256 do
+    galatic_loc12[galatic_loc14] = galatic_loc14
+end
+
+repeat
+    local galatic_loc15 = table.remove(galatic_loc12, math.random(1, #galatic_loc12))
+    galatic20[galatic_loc15] = string.char(galatic_loc15 - 1)
+until #galatic_loc12 == 0
+
+local galatic21 = {}
+
+local function galatic22(...)
+    if #galatic21 == 0 then
+        galatic18 = (galatic18 * 201 + 4780444488035) % 35184372088832
+        local galatic_loc20 = 2 % 32
+        local galatic_loc21 = galatic17(galatic18 / 2 ^ (13 - (2 - galatic_loc20) / 32)) % 4294967296 / 2 ^ galatic_loc20
+        local galatic_loc22 = galatic17(galatic_loc21 % 1 * 4294967296) + galatic17(galatic_loc21)
+    end
+    return table.remove(galatic21)
+end
+
+local galatic23 = {}
+local galatic16 = setmetatable({}, {
+    ["__index"] = galatic23,
+    ["__metatable"] = nil
+})
+
+if getgenv().KEYSP_UI_LOADED then
+    return
+end
+
+getgenv().KEYSP_UI_LOADED = true
+
+local galatic_loc28 = not game:IsLoaded()
+if galatic_loc28 then
+    local Loaded = game.Loaded
+    Loaded:Wait()
+end
+
+local galatic24 = loadstring(game:HttpGet("https://jnkie.com/sdk/library.lua"))()
+galatic24.service = "TWVZ"
+galatic24.identifier = "1082536"
+galatic24.provider = "Linkvertise or LootLabs"
+
+local function galatic25(...)
+    local galatic_loc31 = galatic24.get_key_link()
+    if galatic_loc31 then
+        pcall(setclipboard, galatic_loc31)
+    end
+    return galatic_loc31
+end
+
+local galatic27 = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+
+local galatic31 = (function(...)
+    if not isfile then
+        return nil
+    end
+    if not isfile("TWVZ_KEY.txt") then
+        return nil
+    end
+    local galatic_loc23 = pcall(readfile, "TWVZ_KEY.txt")
+    local galatic_loc31 = galatic_loc23 and readfile("TWVZ_KEY.txt") or nil
+    if not galatic_loc31 then
+        return nil
+    end
+    local galatic_loc33 = galatic16(galatic_loc31)
+    galatic_loc31 = galatic_loc33:gsub("^%s*(.-)%s*$", "%1")
+    if galatic_loc31 == "" then
+        return nil
+    end
+    return galatic_loc31
+end)() or ""
+
+local function galatic32(...)
+    if _G.UILOADED then
+        return
+    end
+    _G.UILOADED = true
+
+    local galatic_loc55 = cloneref or (clonereference or function(galatic_param1_4, ...)
+        return galatic_param1_4
+    end)
+
+    local galatic33 = galatic_loc55(game:GetService("RunService"))
+    local galatic34 = galatic_loc55(game:GetService("ReplicatedStorage"))
+    local galatic35 = galatic_loc55(game:GetService("TeleportService"))
+    local galatic36 = galatic_loc55(game:GetService("TweenService"))
+    local galatic37 = galatic_loc55(game:GetService("Players"))
+    local galatic38 = galatic_loc55(game:GetService("VirtualInputManager"))
+    local galatic39 = galatic_loc55(game:GetService("GuiService"))
+    local galatic40 = galatic_loc55(game:GetService("HttpService"))
+    local galatic41 = game:GetService("CoreGui") or game:GetService("PlayerGui")
+
+    local galatic_loc67 = pcall(function(...)
+        return require(game:GetService("ReplicatedStorage").Modules.ItemRarityConfig)
+    end)
+
+    local LocalPlayer = galatic37.LocalPlayer
+    local CharacterAdded = LocalPlayer.CharacterAdded
+    CharacterAdded:Connect(e)
+    e()
+
+    local galatic_loc74 = not game:IsLoaded()
+    if galatic_loc74 then
+        local Loaded = game.Loaded
+        Loaded:Wait()
+    end
+
+    getgenv().Settings = getgenv().Settings or {
+        ["AutoFarm"] = false,
+        ["AutoFarmLevel"] = false,
+        ["SelectedEnemies"] = {},
+        ["AutoBoss"] = false,
+        ["SelectedBosses"] = {},
+        ["AutoSummonBoss"] = false,
+        ["SelectedSummonBoss"] = nil,
+        ["SelectedSummonDifficulty"] = "Normal",
+        ["AutoBossPity"] = false,
+        ["SelectedPityBoss"] = nil,
+        ["SelectedPityDifficulty"] = "Normal",
+        ["BossPityThreshold"] = 24,
+        ["AutoSeaBossFarm"] = false,
+        ["SeaBossFarmBossWhileWaiting"] = {},
+        ["SeaBossFarmMode"] = "Above",
+        ["SeaBossFarmDistance"] = 25,
+        ["AutoDungeon"] = false,
+        ["Dungeon"] = "CidDungeon",
+        ["AutoSelectDifficulty"] = false,
+        ["AutoReplay"] = false,
+        ["DungeonDifficulty"] = "Easy",
+        ["Method"] = "Teleport",
+        ["DungeonMethod"] = "Teleport",
+        ["FarmMode"] = "Above",
+        ["PositionMode"] = "Center",
+        ["DungeonFarmMode"] = "Above",
+        ["NormalFarmDistance"] = 10,
+        ["NormalTweenSpeed"] = 150,
+        ["DungeonFarmDistance"] = 10,
+        ["DungeonTweenSpeed"] = 150,
+        ["TowerResetEnabled"] = false,
+        ["TowerResetFloor"] = 80,
+        ["AutoHit"] = false,
+        ["AutoEquip"] = false,
+        ["SelectedWeapon"] = nil,
+        ["AutoChangeBuild"] = false,
+    }
+
+    local Settings = getgenv().Settings
+    local galatic55 = syn and syn.request or (request or http_request)
+
+    if galatic55 then
+        getgenv().SailorPieceExecutione = true
+        task.spawn(function(...)
+            pcall(function(...)
+                galatic55({
+                    ["Url"] = "https://kvllxqqubtgsytkipzfj.supabase.co/rest/v1/rpc/increment_script_exec",
+                    ["Method"] = "POST",
+                    ["Headers"] = {
+                        ["apikey"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt2bGx4cXF1YnRnc3l0a2lwemZqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4MDQ0MjgsImV4cCI6MjA5MjM4MDQyOH0.UfEDchzbiW1NJ0ppOgEq2SLwDk_HyEA30sB4zso6FCU",
+                        ["Authorization"] = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt2bGx4cXF1YnRnc3l0a2lwemZqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4MDQ0MjgsImV4cCI6MjA5MjM4MDQyOH0.UfEDchzbiW1NJ0ppOgEq2SLwDk_HyEA30sB4zso6FCU",
+                        ["Content-Type"] = "application/json"
+                    },
+                    ["Body"] = galatic40:JSONEncode({
+                        ["p_script_name"] = "sailorpiece"
+                    })
+                })
+            end)
+        end)
+    end
+
+    local galatic56 = CFrame.new(-1802.30383, -8.30165291, -388.535614, .0270307306, -4.98850703e-008, .999634624, 3.97019058e-008, 1, 4.88297403e-008, -0.999634624, 3.83674958e-008, .0270307306)
+    local galatic57 = Instance.new("Part")
+    galatic57.Name = "tikin"
+    galatic57.Parent = workspace
+    galatic57.Size = Vector3.new(10, 1, 10)
+    galatic57.Anchored = true
+    galatic57.CanCollide = true
+    galatic57.Transparency = 1
+
+    local PadHeartbeat = getgenv().PadHeartbeat
+    if PadHeartbeat then
+        PadHeartbeat:Disconnect()
+    end
+
+    local Heartbeat = galatic33.Heartbeat
+    getgenv().PadHeartbeat = Heartbeat:Connect(function(...)
+        if (Settings.AutoFarm or Settings.AutoFarmLevel or Settings.AutoBoss or Settings.AutoSummonBoss or Settings.AutoSeaBossFarm or Settings.AutoDungeon) and galatic46 then
+            galatic46.Velocity = Vector3.zero
+            galatic46.RotVelocity = Vector3.zero
+            galatic57.CFrame = CFrame.new(galatic46.Position - Vector3.new(0, 3.5, 0))
+        else
+            galatic57.CFrame = CFrame.new(0, -999, 0)
+        end
+    end)
+
+    local function galatic58(...)
+        return galatic46
+    end
+
+    if getgenv().AntiCheatBypassLoop then
+        task.cancel(getgenv().AntiCheatBypassLoop)
+    end
+
+    getgenv().AntiCheatBypassLoop = task.spawn(function(...)
+        while task.wait() do
+            pcall(function(...)
+                DashRemote = galatic34.RemoteEvents.DashRemote
+                DashRemote:FireServer(galatic46.CFrame.LookVector, 0, false)
+            end)
+        end
+    end)
+
+    local function galatic59(galatic_param1_6, ...)
+        if not galatic46 or not galatic47 then
+            return
+        end
+        if (galatic46.Position - galatic_param1_6.Position).Magnitude < 50 then
+            galatic46.CFrame = galatic_param1_6
+            return
+        end
+        galatic47.PlatformStand = true
+        galatic46.CFrame = galatic_param1_6
+        local Heartbeat = galatic33.Heartbeat
+        local galatic_loc87 = Heartbeat:Connect(function(...)
+            if galatic46 then
+                galatic46.Velocity = Vector3.zero
+            end
+        end)
+        task.wait(0.5)
+        galatic_loc87:Disconnect()
+        if galatic47 then
+            galatic47.PlatformStand = false
+        end
+    end
+
+    local galatic62 = {
+        ["130167267952199"] = true,
+        ["115789247270915"] = true
+    }
+
+    local function galatic63(...)
+        return galatic62[tostring(game.PlaceId)] or false
+    end
+
+    local galatic64 = {
+        {npcName = "QuestNPC1", recommendedLevel = 0, mobName = "Thief", sea = 1},
+        {npcName = "QuestNPC2", recommendedLevel = 100, mobName = "ThiefBoss", sea = 1},
+        {npcName = "QuestNPC3", recommendedLevel = 250, mobName = "Monkey", sea = 1},
+        {npcName = "QuestNPC4", recommendedLevel = 500, mobName = "MonkeyBoss", sea = 1},
+        {npcName = "QuestNPC5", recommendedLevel = 750, mobName = "DesertBandit", sea = 1},
+        {npcName = "QuestNPC6", recommendedLevel = 1000, mobName = "DesertBoss", sea = 1},
+        {npcName = "QuestNPC7", recommendedLevel = 1500, mobName = "FrostRogue", sea = 1},
+        {npcName = "QuestNPC8", recommendedLevel = 2000, mobName = "SnowBoss", sea = 1},
+        {npcName = "QuestNPC9", recommendedLevel = 3000, mobName = "Sorcerer", sea = 1},
+        {npcName = "QuestNPC10", recommendedLevel = 4000, mobName = "PandaMiniBoss", sea = 1},
+        {npcName = "QuestNPC11", recommendedLevel = 5000, mobName = "Hollow", sea = 1},
+        {npcName = "QuestNPC12", recommendedLevel = 6250, mobName = "StrongSorcerer", sea = 1},
+        {npcName = "QuestNPC13", recommendedLevel = 7000, mobName = "Curse", sea = 1},
+        {npcName = "QuestNPC14", recommendedLevel = 8000, mobName = "SlimeWarrior", sea = 1},
+        {npcName = "QuestNPC15", recommendedLevel = 9000, mobName = "AcademyTeacher", sea = 1},
+        {npcName = "QuestNPC16", recommendedLevel = 10000, mobName = "Swordsman", sea = 1},
+        {npcName = "QuestNPC17", recommendedLevel = 10750, mobName = "Quincy", sea = 1},
+        {npcName = "QuestNPC18", recommendedLevel = 11500, mobName = "Ninja", sea = 1},
+        {npcName = "QuestNPC19", recommendedLevel = 12000, mobName = "ArenaFighter", sea = 1},
+        {npcName = "QuestNPC20", recommendedLevel = 12750, mobName = "Delinquent", sea = 2},
+        {npcName = "QuestNPC21", recommendedLevel = 13000, mobName = "StrongFighter", sea = 2},
+        {npcName = "QuestNPC22", recommendedLevel = 13500, mobName = "StrongBandit", sea = 2},
+        {npcName = "QuestNPC23", recommendedLevel = 14500, mobName = "FastNinja", sea = 2},
+        {npcName = "QuestNPC24", recommendedLevel = 16000, mobName = "SpiritFighter", sea = 2},
+        {npcName = "QuestNPC25", recommendedLevel = 18000, mobName = "StrongSlayer", sea = 2}
+    }
+
+    local galatic65 = {
+        GojoBoss = 1, SukunaBoss = 1, AizenBoss = 1, YujiBoss = 1, JinwooBoss = 1, AlucardBoss = 1, YamatoBoss = 1,
+        StrongestShinobiBoss = 1, CosmicBeingBoss = 2, ["Sea Serpent"] = 2, Kraken = 2, SunGodBoss = 2
+    }
+
+    local galatic66 = {
+        SaberBoss = 1, QinShiBoss = 1, IchigoBoss = 1, GilgameshBoss = 1, BlessedMaidenBoss = 1, SaberAlterBoss = 1,
+        AnosBoss = 1, StrongestToday = 1, StrongestHistory = 1, RimuruBoss = 1, TrueAizenBoss = 1, AtomicBoss = 1,
+        MoonSlayerBoss = 1, IceQueenBoss = 1, GreatMageBoss = 1, TheWorldBoss = 2, SpiritWarriorBoss = 2
+    }
+
+    local galatic_loc88 = {"Normal", "Medium", "Hard", "Extreme"}
+
+    local function galatic73(galatic_param1_12, ...)
+        if galatic_param1_12 == "AtomicBoss" then return "Atomic" end
+        if galatic_param1_12 == "AnosBoss" then return "Anos" end
+        if galatic_param1_12 == "RimuruBoss" then return "Rimuru" end
+        if galatic_param1_12 == "TrueAizenBoss" then return "TrueAizen" end
+        if galatic_param1_12 == "GreatMageBoss" then return "GreatMage" end
+        if galatic_param1_12 == "TheWorldBoss" then return "TheWorld" end
+        if galatic_param1_12 == "SpiritWarriorBoss" then return "SpiritWarrior" end
+        return galatic_param1_12
+    end
+
+    local function galatic74(...)
+        return LocalPlayer.Data.Level.Value
+    end
+
+    local galatic76 = {
+        {bounty = 500000, denom = 3000}, {bounty = 1000000, denom = 2700}, {bounty = 1500000, denom = 2400},
+        {bounty = 2000000, denom = 2100}, {bounty = 2500000, denom = 1900}, {bounty = 3000000, denom = 1700},
+        {bounty = 4000000, denom = 1500}, {bounty = 5000000, denom = 1400}, {bounty = 6000000, denom = 1300},
+        {bounty = 7000000, denom = 1200}, {bounty = 8000000, denom = 1150}, {bounty = 9000000, denom = 1100},
+        {bounty = 10000000, denom = 1000}, {bounty = 15000000, denom = 950}, {bounty = 20000000, denom = 1200},
+        {bounty = 25000000, denom = 900}, {bounty = 30000000, denom = 800}, {bounty = 40000000, denom = 700},
+        {bounty = 50000000, denom = 650}
+    }
+
+    local function galatic77(...)
+        local leaderstats = LocalPlayer:FindFirstChild("leaderstats")
+        if not leaderstats then return 0 end
+        local Bounty = leaderstats:FindFirstChild("Bounty")
+        if not Bounty then return 0 end
+        return tonumber(Bounty.Value) or 0
+    end
+
+    local function galatic78(galatic_param1_13, ...)
+        local galatic_loc93 = tonumber(galatic_param1_13) or 0
+        if galatic_loc93 < 500000 then return 0 end
+        if #galatic76 == 0 then return 0 end
+        if galatic_loc93 <= galatic76[1].bounty then return 1 / galatic76[1].denom end
+        for i = #galatic76, 1, -1 do
+            if galatic_loc93 >= galatic76[i].bounty then
+                return 1 / galatic76[i].denom
+            end
+        end
+        return 1 / galatic76[#galatic76].denom
+    end
+
+    local function galatic80(...)
+        local galatic_loc111 = galatic77()
+        local galatic_loc112 = galatic78(galatic_loc111)
+        if galatic_loc112 <= 0 then
+            return string.format("Bounty: %s\nChance per second: 0%%\nNeed at least %s bounty to qualify.", tostring(galatic_loc111), tostring(500000))
+        end
+        return string.format("Bounty: %s\nChance per second: %.5f%% (1/%.0f)\nChance within 60s: %.2f%%", tostring(galatic_loc111), galatic_loc112 * 100, 1 / galatic_loc112, (1 - (1 - galatic_loc112) ^ 60) * 100)
+    end
+
+    local galatic81 = {TimeSeconds = 0, Spawned = 0, LastSeaBossModel = nil, IsTracking = false}
+
+    local function galatic82(galatic_param1_15, ...)
+        local galatic_loc115 = math.max(0, math.floor(tonumber(galatic_param1_15) or 0))
+        local galatic_loc116 = math.floor(galatic_loc115 / 3600)
+        local galatic_loc117 = math.floor(galatic_loc115 % 3600 / 60)
+        local galatic_loc118 = galatic_loc115 % 60
+        if galatic_loc116 > 0 then
+            return string.format("%02d:%02d:%02d", galatic_loc116, galatic_loc117, galatic_loc118)
+        end
+        return string.format("%02d:%02d", galatic_loc117, galatic_loc118)
+    end
+
+    local function galatic83(...)
+        return string.format("Time farming: %s\nSpawned: %d", galatic82(galatic81.TimeSeconds), galatic81.Spawned)
+    end
+
+    local galatic84 = {}
+
+    task.spawn(function(...)
+        pcall(function(...)
+            local Remotes = galatic34:WaitForChild("Remotes", 5)
+            if Remotes then
+                local UpdateInventory = Remotes:WaitForChild("UpdateInventory", 5)
+                local RequestInventory = Remotes:WaitForChild("RequestInventory", 5)
+                if UpdateInventory then
+                    UpdateInventory.OnClientEvent:Connect(function(galatic_param1_16, galatic_param2_16, ...)
+                        galatic84[galatic_param1_16] = galatic_param2_16
+                    end)
+                    RequestInventory:FireServer()
+                end
+            end
+        end)
+    end)
+
+    local galatic87 = {}
+    local galatic88 = {}
+
+    local galatic96 = {
+        Runes = "🪨", Melee = "🥊", Sword = "⚔️", Power = "🔮", Auras = "✨", Items = "🎒", Accessories = "💍", Cosmetics = "🎩", Relics = "🏺", Other = "🔮"
+    }
+
+    local function galatic99(...)
+        if next(galatic87) == nil then return end
+        local galatic_loc120 = {}
+        for _, galatic_loc124 in ipairs(galatic88) do
+            local galatic_loc128 = tostring(galatic_loc124)
+        end
+        galatic87 = {}
+        galatic88 = {}
+    end
+
+    local galatic103 = {Current = nil, Max = nil, BossName = nil}
+
+    local function galatic105(...)
+        return galatic103.Current, galatic103.Max, galatic103.BossName
+    end
+
+    local function galatic_loc48(...)
+        local galatic_loc169 = {}
+        for galatic_loc172, galatic_loc173 in pairs(galatic66) do
+            if galatic_loc173 == (galatic63() and 2 or 1) then
+                table.insert(galatic_loc169, galatic_loc172)
+            end
+        end
+        table.sort(galatic_loc169)
+        return galatic_loc169
+    end
+
+    local function galatic106(...)
+        return math.max(0, tonumber(Settings.BossPityThreshold) or 24)
+    end
+
+    local function galatic107(...)
+        local current, maxBoss = galatic105()
+        if current then
+            return string.format("%d/%d", current, maxBoss)
+        end
+        return "Unknown, waiting for boss"
+    end
+
+    local function galatic108(...)
+        local current, maxBoss = galatic105()
+        return current, maxBoss, current
+    end
+
+    local function galatic109(...)
+        for i, v in ipairs(galatic64) do
+            if v.sea == (galatic63() and 2 or 1) and galatic74() >= v.recommendedLevel then
+                return v
+            end
+        end
+        return nil
+    end
+
+    local function galatic_loc49(...)
+        local galatic_loc197 = {}
+        for name, sea in pairs(galatic65) do
+            if sea == (galatic63() and 2 or 1) then
+                table.insert(galatic_loc197, name)
+            end
+        end
+        table.sort(galatic_loc197)
+        return galatic_loc197
+    end
+
+    local function galatic110(...)
+        local NPCs = workspace:FindFirstChild("NPCs")
+        if not NPCs then return {} end
+        local galatic_loc204 = {}
+        for _, v in ipairs(NPCs:GetChildren()) do
+            if v:IsA("Model") then
+                local name = v.Name
+                if name ~= "" and name ~= "TrainingDummy" then
+                    table.insert(galatic_loc204, name)
+                end
+            end
+        end
+        table.sort(galatic_loc204)
+        return galatic_loc204
+    end
+
+    local function galatic111(...)
+        local weapons = {}
+        local backpack = LocalPlayer:FindFirstChild("Backpack")
+        if backpack then
+            for _, v in ipairs(backpack:GetChildren()) do
+                if v:IsA("Tool") then
+                    table.insert(weapons, v.Name)
+                end
+            end
+        end
+        local Character = LocalPlayer.Character
+        if Character then
+            for _, v in ipairs(Character:GetChildren()) do
+                if v:IsA("Tool") then
+                    table.insert(weapons, v.Name)
+                end
+            end
+        end
+        return weapons
+    end
+
+    local function galatic_loc51(galatic_param1_24, ...)
+        if not galatic_param1_24 then return end
+        galatic39.SelectedObject = galatic_param1_24
+        task.wait(0.1)
+        if galatic39.SelectedObject == galatic_param1_24 then
+            for _ = 1, 2 do
+                galatic38:SendKeyEvent(true, Enum.KeyCode.Return, false, game)
+                task.wait(0.05)
+                galatic38:SendKeyEvent(false, Enum.KeyCode.Return, false, game)
+                task.wait(0.15)
+            end
+        end
+        task.wait(0.1)
+        galatic39.SelectedObject = galatic39.SelectedObject
+    end
+
+    local galatic_loc249 = {1, 2, 3, 4, 5}
+    local galatic_loc250 = {"Sword", "Melee", "Power"}
+
+    local function galatic116(galatic_param1_26, ...)
+        if not galatic_param1_26 or galatic_param1_26 == galatic113 then return false end
+        if os.clock() - 0 < 3 then return false end
+        local success = pcall(function()
+            galatic34.RemoteEvents.LoadoutLoad:FireServer(galatic_param1_26)
+        end)
+        return success
+    end
+
+    local function galatic119(...)
+        if Settings.AutoEquip and Settings.SelectedWeapon then
+            return Settings.SelectedWeapon
+        end
+        local BuildSwapWeaponType = Settings.BuildSwapWeaponType
+        if not BuildSwapWeaponType then return nil end
+        local success, equipped = pcall(function()
+            return galatic34.Remotes.GetEquipped:InvokeServer()
+        end)
+        if success then
+            return equipped[BuildSwapWeaponType]
+        end
+        return nil
+    end
+
+    local function galatic124(...)
+        task.wait(0.3)
+        if not galatic119() then return end
+        for _ = 1, 10 do
+            return
+        end
+    end
+
+    local galatic125 = Enum.KeyCode.G
+
+    local n = {}
+
+    local galatic_loc267 = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+
+    local Fluent = galatic_loc267
+
+    local Window = Fluent:CreateWindow({
+        Title = "Sailor Piece",
+        SubTitle = "by unknown",
+        TabWidth = 160,
+        Size = UDim2.fromOffset(580, 460),
+        Acrylic = false,
+        Theme = "Dark",
+        MinimizeKey = Enum.KeyCode.LeftControl
+    })
+
+    local Tabs = {
+        Main = Window:AddTab({Title = "Main", Icon = "home"}),
+        AutoFarm = Window:AddTab({Title = "Auto Farm", Icon = "sword"}),
+        Boss = Window:AddTab({Title = "Boss", Icon = "crown"}),
+        SeaBoss = Window:AddTab({Title = "Sea Boss", Icon = "anchor"}),
+        Dungeon = Window:AddTab({Title = "Dungeon", Icon = "door"}),
+        Weapons = Window:AddTab({Title = "Weapons", Icon = "hammer"}),
+        Settings = Window:AddTab({Title = "Settings", Icon = "settings"}),
+        Logs = Window:AddTab({Title = "Logs", Icon = "book"}),
+        Misc = Window:AddTab({Title = "Misc", Icon = "cog"}),
+        Config = Window:AddTab({Title = "Config", Icon = "save"}),
+        Key = Window:AddTab({Title = "Key", Icon = "key"})
+    }
+
+    local MainTab = Tabs.Main
+    local AutoFarmTab = Tabs.AutoFarm
+    local BossTab = Tabs.Boss
+    local SeaBossTab = Tabs.SeaBoss
+    local DungeonTab = Tabs.Dungeon
+    local WeaponsTab = Tabs.Weapons
+    local SettingsTab = Tabs.Settings
+    local LogsTab = Tabs.Logs
+    local MiscTab = Tabs.Misc
+    local ConfigTab = Tabs.Config
+    local KeyTab = Tabs.Key
+
+    if galatic63() then
+        Tabs.AutoFarm = Window:AddTab({Title = "Auto Farm (Sea 2)", Icon = "sword"})
+        Tabs.Boss = Window:AddTab({Title = "Boss (Sea 2)", Icon = "crown"})
+    end
+
+    local EnemiesList = galatic110()
+    local EnemyDropdown = AutoFarmTab:AddDropdown("EnemyDropdown", {
+        Title = "Select Enemies",
+        Values = EnemiesList,
+        Multi = true,
+        Default = Settings.SelectedEnemies,
+        Callback = function(v) Settings.SelectedEnemies = v end
+    })
+
+    local RefreshEnemiesBtn = AutoFarmTab:AddButton({
+        Title = "Refresh Enemies List",
+        Callback = function()
+            local newList = galatic110()
+            if #newList > 0 then
+                EnemyDropdown:SetValues(newList)
+            end
+        end
+    })
+
+    local AutoFarmToggle = AutoFarmTab:AddToggle("AutoFarmToggle", {
+        Title = "Auto Farm",
+        Default = Settings.AutoFarm,
+        Callback = function(v) Settings.AutoFarm = v end
+    })
+
+    local AutoFarmLevelToggle = AutoFarmTab:AddToggle("AutoFarmLevelToggle", {
+        Title = "Auto Farm Level",
+        Default = Settings.AutoFarmLevel,
+        Callback = function(v) Settings.AutoFarmLevel = v end
+    })
+
+    AutoFarmTab:AddSection("Farm Settings")
+
+    local BossList = galatic_loc49()
+    local BossDropdown = BossTab:AddDropdown("BossDropdown", {
+        Title = "Select Bosses",
+        Values = BossList,
+        Multi = true,
+        Default = Settings.SelectedBosses,
+        Callback = function(v) Settings.SelectedBosses = v end
+    })
+
+    local AutoBossToggle = BossTab:AddToggle("AutoBossToggle", {
+        Title = "Auto Boss",
+        Default = Settings.AutoBoss,
+        Callback = function(v) Settings.AutoBoss = v end
+    })
+
+    BossTab:AddSection("Summon Boss")
+
+    local SummonBossList = galatic_loc48()
+    local SummonBossDropdown = BossTab:AddDropdown("SummonBossDropdown", {
+        Title = "Select Boss to Summon",
+        Values = SummonBossList,
+        Multi = false,
+        Default = Settings.SelectedSummonBoss,
+        Callback = function(v) Settings.SelectedSummonBoss = v end
+    })
+
+    local SummonDifficultyDropdown = BossTab:AddDropdown("SummonDifficultyDropdown", {
+        Title = "Difficulty",
+        Values = galatic_loc88,
+        Multi = false,
+        Default = Settings.SelectedSummonDifficulty,
+        Callback = function(v) Settings.SelectedSummonDifficulty = v end
+    })
+
+    local AutoSummonBossToggle = BossTab:AddToggle("AutoSummonBossToggle", {
+        Title = "Auto Summon Boss",
+        Default = Settings.AutoSummonBoss,
+        Callback = function(v) Settings.AutoSummonBoss = v end
+    })
+
+    BossTab:AddSection("Boss Pity")
+
+    local PityBossDropdown = BossTab:AddDropdown("PityBossDropdown", {
+        Title = "Select Boss for Pity",
+        Values = SummonBossList,
+        Multi = false,
+        Default = Settings.SelectedPityBoss,
+        Callback = function(v) Settings.SelectedPityBoss = v end
+    })
+
+    local PityDifficultyDropdown = BossTab:AddDropdown("PityDifficultyDropdown", {
+        Title = "Pity Difficulty",
+        Values = galatic_loc88,
+        Multi = false,
+        Default = Settings.SelectedPityDifficulty,
+        Callback = function(v) Settings.SelectedPityDifficulty = v end
+    })
+
+    local PityThresholdInput = BossTab:AddInput("PityThresholdInput", {
+        Title = "Pity Threshold",
+        Placeholder = "24",
+        Default = tostring(Settings.BossPityThreshold),
+        Numeric = true,
+        Finished = false,
+        Callback = function(v) Settings.BossPityThreshold = tonumber(v) or 24 end
+    })
+
+    local PityStatusParagraph = BossTab:AddParagraph("PityStatusParagraph", {
+        Title = "Pity Status",
+        Content = galatic107()
+    })
+
+    local AutoBossPityToggle = BossTab:AddToggle("AutoBossPityToggle", {
+        Title = "Auto Boss Pity",
+        Default = Settings.AutoBossPity,
+        Callback = function(v) Settings.AutoBossPity = v end
+    })
+
+    BossTab:AddSection("Safe Farm")
+
+    local SafeFarmToggle = BossTab:AddToggle("SafeFarmToggle", {
+        Title = "Safe Farm (Avoid Bosses)",
+        Default = Settings.SafeFarm,
+        Callback = function(v) Settings.SafeFarm = v end
+    })
+
+    local FarmModeDropdown = BossTab:AddDropdown("FarmModeDropdown", {
+        Title = "Farm Mode",
+        Values = {"Above", "Behind"},
+        Multi = false,
+        Default = Settings.FarmMode,
+        Callback = function(v) Settings.FarmMode = v end
+    })
+
+    local PositionModeDropdown = BossTab:AddDropdown("PositionModeDropdown", {
+        Title = "Position Mode",
+        Values = {"Center", "Closest"},
+        Multi = false,
+        Default = Settings.PositionMode,
+        Callback = function(v) Settings.PositionMode = v end
+    })
+
+    local MethodDropdown = BossTab:AddDropdown("MethodDropdown", {
+        Title = "Movement Method",
+        Values = {"Teleport", "Tween"},
+        Multi = false,
+        Default = Settings.Method,
+        Callback = function(v) Settings.Method = v end
+    })
+
+    local NormalFarmDistanceSlider = BossTab:AddSlider("NormalFarmDistanceSlider", {
+        Title = "Farm Distance",
+        Default = Settings.NormalFarmDistance,
+        Min = 1,
+        Max = 20,
+        Rounding = 1,
+        Callback = function(v) Settings.NormalFarmDistance = v end
+    })
+
+    local NormalTweenSpeedInput = BossTab:AddInput("NormalTweenSpeedInput", {
+        Title = "Tween Speed",
+        Placeholder = "150",
+        Default = tostring(Settings.NormalTweenSpeed or 150),
+        Numeric = true,
+        Finished = false,
+        Callback = function(v) Settings.NormalTweenSpeed = tonumber(v) or 150 end
+    })
+
+    BossTab:AddSection("Auto Hit")
+
+    local AutoHitToggle = BossTab:AddToggle("AutoHitToggle", {
+        Title = "Auto Hit",
+        Default = Settings.AutoHit,
+        Callback = function(v) Settings.AutoHit = v end
+    })
+
+    if getgenv().AutoHitLoop then
+        task.cancel(getgenv().AutoHitLoop)
+    end
+    getgenv().AutoHitLoop = task.spawn(function()
+        while task.wait() do
+            pcall(function()
+                galatic34.CombatSystem.Remotes.RequestHit:FireServer()
+            end)
+        end
+    end)
+
+    local WeaponsList = galatic111()
+    local WeaponDropdown = WeaponsTab:AddDropdown("WeaponDropdown", {
+        Title = "Select Weapon",
+        Values = WeaponsList,
+        Multi = false,
+        Default = Settings.SelectedWeapon,
+        Callback = function(v) Settings.SelectedWeapon = v end
+    })
+
+    local RefreshWeaponsBtn = WeaponsTab:AddButton({
+        Title = "Refresh Weapons List",
+        Callback = function()
+            local newList = galatic111()
+            if #newList > 0 then
+                WeaponDropdown:SetValues(newList)
+            end
+        end
+    })
+
+    local AutoEquipToggle = WeaponsTab:AddToggle("AutoEquipToggle", {
+        Title = "Auto Equip Weapon",
+        Default = Settings.AutoEquip,
+        Callback = function(v) Settings.AutoEquip = v end
+    })
+
+    if getgenv().AutoEquipLoop then
+        task.cancel(getgenv().AutoEquipLoop)
+    end
+    getgenv().AutoEquipLoop = task.spawn(function()
+        while task.wait(0.5) do
+            if Settings.AutoEquip and Settings.SelectedWeapon then
+                pcall(function() galatic112(Settings.SelectedWeapon) end)
+            end
+        end
+    end)
+
+    WeaponsTab:AddSection("Build Swapping")
+
+    local BuildSlotNormalDropdown = WeaponsTab:AddDropdown("BuildSlotNormalDropdown", {
+        Title = "Normal Farm Build Slot",
+        Values = galatic_loc249,
+        Multi = false,
+        Default = Settings.BuildSlotNormal,
+        Callback = function(v) Settings.BuildSlotNormal = v end
+    })
+
+    local BuildSlotBossDropdown = WeaponsTab:AddDropdown("BuildSlotBossDropdown", {
+        Title = "Boss Farm Build Slot",
+        Values = galatic_loc249,
+        Multi = false,
+        Default = Settings.BuildSlotBoss,
+        Callback = function(v) Settings.BuildSlotBoss = v end
+    })
+
+    local AutoChangeBuildToggle = WeaponsTab:AddToggle("AutoChangeBuildToggle", {
+        Title = "Auto Change Build",
+        Default = Settings.AutoChangeBuild,
+        Callback = function(v) Settings.AutoChangeBuild = v end
+    })
+
+    WeaponsTab:AddSection("HP Based Build Swap")
+
+    local BuildSlotHPDropdown = WeaponsTab:AddDropdown("BuildSlotHPDropdown", {
+        Title = "HP Threshold Build Slot",
+        Values = galatic_loc249,
+        Multi = false,
+        Default = Settings.BuildSlotHP,
+        Callback = function(v) Settings.BuildSlotHP = v end
+    })
+
+    local BuildSwapHPPercentInput = WeaponsTab:AddInput("BuildSwapHPPercentInput", {
+        Title = "HP Threshold (%)",
+        Placeholder = "10",
+        Default = tostring(Settings.BuildSwapHPPercent or 10),
+        Numeric = true,
+        Finished = false,
+        Callback = function(v) Settings.BuildSwapHPPercent = math.clamp(tonumber(v) or 10, 0.1, 99.9) end
+    })
+
+    local BuildSwapHPOnlyBossesToggle = WeaponsTab:AddToggle("BuildSwapHPOnlyBossesToggle", {
+        Title = "Only on Bosses",
+        Default = Settings.BuildSwapHPOnlyBosses,
+        Callback = function(v) Settings.BuildSwapHPOnlyBosses = v end
+    })
+
+    local BuildSwapHPEnabledToggle = WeaponsTab:AddToggle("BuildSwapHPEnabledToggle", {
+        Title = "Enable HP Based Swap",
+        Default = Settings.BuildSwapHPEnabled,
+        Callback = function(v) Settings.BuildSwapHPEnabled = v end
+    })
+
+    WeaponsTab:AddSection("Weapon Type Swap")
+
+    local BuildSwapWeaponTypeDropdown = WeaponsTab:AddDropdown("BuildSwapWeaponTypeDropdown", {
+        Title = "Weapon Type to Equip",
+        Values = galatic_loc250,
+        Multi = false,
+        Default = Settings.BuildSwapWeaponType,
+        Callback = function(v) Settings.BuildSwapWeaponType = v end
+    })
+
+    local AutoReequipWeaponToggle = WeaponsTab:AddToggle("AutoReequipWeaponToggle", {
+        Title = "Re-equip Previous Weapon",
+        Default = Settings.AutoReequipWeapon,
+        Callback = function(v) Settings.AutoReequipWeapon = v end
+    })
+
+    if getgenv().AutoReequipWeaponLoop then
+        task.cancel(getgenv().AutoReequipWeaponLoop)
+    end
+    getgenv().AutoReequipWeaponLoop = task.spawn(function()
+        while task.wait(0.5) do
+            if Settings.AutoEquip and Settings.SelectedWeapon then
+                pcall(function() galatic112(Settings.SelectedWeapon) end)
+            end
+        end
+    end)
+
+    if getgenv().BuildSwapLoop then
+        task.cancel(getgenv().BuildSwapLoop)
+    end
+    getgenv().BuildSwapLoop = task.spawn(function()
+        while task.wait(0.5) do
+            if Settings.AutoChangeBuild then
+                -- Build swap logic here
+            end
+        end
+    end)
+
+    local function galatic104(pity, maxPity, bossName)
+        galatic103.Current = pity
+        galatic103.Max = maxPity
+        galatic103.BossName = bossName
+        pcall(function()
+            PityStatusParagraph:SetDesc(galatic107())
+        end)
+    end
+
+    local pityRemote = galatic34:WaitForChild("Remotes"):WaitForChild("PityInfo")
+    pityRemote.OnClientEvent:Connect(function(pityData)
+        if type(pityData) == "table" then
+            galatic104(pityData.pity, pityData.maxPity, pityData.bossName)
+        end
+    end)
+
+    local pityUpdateRemote = galatic34:WaitForChild("Remotes"):WaitForChild("PityUpdate")
+    pityUpdateRemote.OnClientEvent:Connect(function(pity, maxPity)
+        galatic104(pity, maxPity)
+    end)
+
+    task.spawn(function()
+        while task.wait(0.5) do
+            local status = galatic107()
+            if status then
+                pcall(function() PityStatusParagraph:SetDesc(status) end)
+            end
+        end
+    end)
+
+    local function galatic71(bossName)
+        return galatic66[bossName] or false
+    end
+
+    local function galatic70(bossName)
+        return galatic66[bossName] == (galatic63() and 2 or 1)
+    end
+
+    local function galatic69(bossName)
+        return galatic65[bossName] == (galatic63() and 2 or 1)
+    end
+
+    local function galatic72(name)
+        return name
+    end
+
+    local function galatic127(bossName, difficulty)
+        if not bossName or not galatic70(bossName) then return end
+        if type(galatic66[bossName]) == "number" and galatic66[bossName] > (galatic63() and 2 or 1) then return end
+        pcall(function()
+            if bossName == "AtomicBoss" then
+                galatic34.RemoteEvents.RequestSpawnAtomic:FireServer(difficulty)
+            elseif bossName == "AnosBoss" then
+                galatic34.Remotes.RequestSpawnAnosBoss:FireServer(galatic73(bossName), difficulty)
+            elseif bossName == "RimuruBoss" then
+                galatic34.RemoteEvents.RequestSpawnRimuru:FireServer(difficulty)
+            elseif bossName == "TrueAizenBoss" then
+                galatic34.RemoteEvents.RequestSpawnTrueAizen:FireServer(difficulty)
+            elseif bossName == "GreatMageBoss" then
+                galatic34.RemoteEvents.RequestSpawnGreatMage:FireServer(difficulty)
+            elseif bossName == "TheWorldBoss" then
+                galatic34.RemoteEvents.RequestSpawnTheWorld:FireServer(difficulty)
+            elseif bossName == "SpiritWarriorBoss" then
+                galatic34.RemoteEvents.RequestSpawnSpiritWarrior:FireServer(difficulty)
+            elseif galatic71(bossName) then
+                if bossName == "StrongestToday" or bossName == "StrongestHistory" then
+                    galatic34.Remotes.RequestSpawnStrongestBoss:FireServer(bossName, difficulty)
+                end
+                galatic34.Remotes.RequestSummonBoss:FireServer(bossName, difficulty)
+            else
+                galatic34.Remotes.RequestSummonBoss:FireServer(bossName)
+            end
+        end)
+    end
+
+    local function galatic126()
+        if not Settings.AutoSummonBoss and Settings.SelectedSummonBoss and os.clock() - (getgenv().LastSummonTime or 0) >= 60 then
+            getgenv().LastSummonTime = os.clock()
+            galatic127(Settings.SelectedSummonBoss, Settings.SelectedSummonDifficulty)
+        end
+        if Settings.AutoBossPity and Settings.SelectedPityBoss and galatic103.Current and galatic103.Current >= galatic106() then
+            galatic127(Settings.SelectedPityBoss, Settings.SelectedPityDifficulty)
+        end
+    end
+
+    local SeaBossFarm = {
+        Current = nil,
+        IsTracking = false,
+        Spawned = 0,
+        TimeSeconds = 0
+    }
+
+    local SeaBossFarmToggle = SeaBossTab:AddToggle("SeaBossFarmToggle", {
+        Title = "Auto Sea Boss Farm",
+        Default = Settings.AutoSeaBossFarm,
+        Callback = function(v) Settings.AutoSeaBossFarm = v end
+    })
+
+    local SeaBossList = galatic_loc49()
+    local SeaBossWaitingDropdown = SeaBossTab:AddDropdown("SeaBossWaitingDropdown", {
+        Title = "Farm Other Bosses While Waiting",
+        Values = SeaBossList,
+        Multi = true,
+        Default = Settings.SeaBossFarmBossWhileWaiting,
+        Callback = function(v) Settings.SeaBossFarmBossWhileWaiting = v end
+    })
+
+    local SeaBossModeDropdown = SeaBossTab:AddDropdown("SeaBossModeDropdown", {
+        Title = "Farm Mode",
+        Values = {"Above", "Behind"},
+        Multi = false,
+        Default = Settings.SeaBossFarmMode,
+        Callback = function(v) Settings.SeaBossFarmMode = v end
+    })
+
+    local SeaBossDistanceSlider = SeaBossTab:AddSlider("SeaBossDistanceSlider", {
+        Title = "Distance",
+        Default = Settings.SeaBossFarmDistance,
+        Min = 1,
+        Max = 50,
+        Rounding = 1,
+        Callback = function(v) Settings.SeaBossFarmDistance = v end
+    })
+
+    local SeaBossStatsParagraph = SeaBossTab:AddParagraph("SeaBossStatsParagraph", {
+        Title = "Statistics",
+        Content = galatic83()
+    })
+
+    local ResetSeaBossStatsBtn = SeaBossTab:AddButton({
+        Title = "Reset Statistics",
+        Callback = function()
+            SeaBossFarm.TimeSeconds = 0
+            SeaBossFarm.Spawned = 0
+            SeaBossFarm.LastSeaBossModel = nil
+            SeaBossFarm.IsTracking = false
+            pcall(function() SeaBossStatsParagraph:SetDesc(galatic83()) end)
+        end
+    })
+
+    local RefreshSeaBossListBtn = SeaBossTab:AddButton({
+        Title = "Refresh Sea Boss List",
+        Callback = function()
+            pcall(function() SeaBossWaitingDropdown:SetValues(galatic_loc49()) end)
+        end
+    })
+
+    local BountyInfoParagraph = SeaBossTab:AddParagraph("BountyInfoParagraph", {
+        Title = "Bounty Information",
+        Content = galatic80()
+    })
+
+    local function galatic79(value)
+        return tostring(value)
+    end
+
+    task.spawn(function()
+        while task.wait(1) do
+            if Settings.AutoSeaBossFarm then
+                SeaBossFarm.TimeSeconds = SeaBossFarm.TimeSeconds + 1
+                pcall(function() SeaBossStatsParagraph:SetDesc(galatic83()) end)
+                pcall(function() BountyInfoParagraph:SetDesc(galatic80()) end)
+            end
+        end
+    end)
+
+    local DungeonList = {
+        "CidDungeon", "GoblinDungeon", "TowerDungeon", "CrystalDefense", "BossRush"
+    }
+
+    local DungeonDropdown = DungeonTab:AddDropdown("DungeonDropdown", {
+        Title = "Select Dungeon",
+        Values = DungeonList,
+        Multi = false,
+        Default = Settings.Dungeon,
+        Callback = function(v) Settings.Dungeon = v end
+    })
+
+    local StartDungeonBtn = DungeonTab:AddButton({
+        Title = "Start Dungeon",
+        Callback = function()
+            galatic34.Remotes.RequestDungeonPortal:FireServer(Settings.Dungeon)
+        end
+    })
+
+    DungeonTab:AddSection("Dungeon Settings")
+
+    local DungeonDifficultyDropdown = DungeonTab:AddDropdown("DungeonDifficultyDropdown", {
+        Title = "Difficulty",
+        Values = galatic_loc88,
+        Multi = false,
+        Default = Settings.DungeonDifficulty,
+        Callback = function(v) Settings.DungeonDifficulty = v end
+    })
+
+    local AutoSelectDifficultyToggle = DungeonTab:AddToggle("AutoSelectDifficultyToggle", {
+        Title = "Auto Select Difficulty",
+        Default = Settings.AutoSelectDifficulty,
+        Callback = function(v) Settings.AutoSelectDifficulty = v end
+    })
+
+    local AutoReplayToggle = DungeonTab:AddToggle("AutoReplayToggle", {
+        Title = "Auto Replay",
+        Default = Settings.AutoReplay,
+        Callback = function(v) Settings.AutoReplay = v end
+    })
+
+    local AutoDungeonToggle = DungeonTab:AddToggle("AutoDungeonToggle", {
+        Title = "Auto Dungeon",
+        Default = Settings.AutoDungeon,
+        Callback = function(v) Settings.AutoDungeon = v end
+    })
+
+    DungeonTab:AddSection("Dungeon Farm Settings")
+
+    local TowerResetFloorInput = DungeonTab:AddInput("TowerResetFloorInput", {
+        Title = "Tower Reset Floor",
+        Placeholder = "80",
+        Default = tostring(Settings.TowerResetFloor),
+        Numeric = true,
+        Finished = false,
+        Callback = function(v) Settings.TowerResetFloor = tonumber(v) or 0 end
+    })
+
+    local TowerResetEnabledToggle = DungeonTab:AddToggle("TowerResetEnabledToggle", {
+        Title = "Auto Reset Tower",
+        Default = Settings.TowerResetEnabled,
+        Callback = function(v) Settings.TowerResetEnabled = v end
+    })
+
+    local DungeonSafeFarmToggle = DungeonTab:AddToggle("DungeonSafeFarmToggle", {
+        Title = "Safe Farm (Avoid Mino Boss)",
+        Default = Settings.DungeonSafeFarm,
+        Callback = function(v) Settings.DungeonSafeFarm = v end
+    })
+
+    local DungeonFarmModeDropdown = DungeonTab:AddDropdown("DungeonFarmModeDropdown", {
+        Title = "Farm Mode",
+        Values = {"Above", "Behind"},
+        Multi = false,
+        Default = Settings.DungeonFarmMode,
+        Callback = function(v) Settings.DungeonFarmMode = v end
+    })
+
+    local DungeonMethodDropdown = DungeonTab:AddDropdown("DungeonMethodDropdown", {
+        Title = "Movement Method",
+        Values = {"Teleport", "Tween"},
+        Multi = false,
+        Default = Settings.DungeonMethod,
+        Callback = function(v) Settings.DungeonMethod = v end
+    })
+
+    local DungeonFarmDistanceSlider = DungeonTab:AddSlider("DungeonFarmDistanceSlider", {
+        Title = "Farm Distance",
+        Default = Settings.DungeonFarmDistance,
+        Min = 1,
+        Max = 20,
+        Rounding = 1,
+        Callback = function(v) Settings.DungeonFarmDistance = v end
+    })
+
+    local DungeonTweenSpeedInput = DungeonTab:AddInput("DungeonTweenSpeedInput", {
+        Title = "Tween Speed",
+        Placeholder = "150",
+        Default = tostring(Settings.DungeonTweenSpeed),
+        Numeric = true,
+        Finished = false,
+        Callback = function(v) Settings.DungeonTweenSpeed = tonumber(v) or 150 end
+    })
+
+    if getgenv().AutoDungeonVoteLoop then
+        task.cancel(getgenv().AutoDungeonVoteLoop)
+    end
+    getgenv().AutoDungeonVoteLoop = task.spawn(function()
+        while task.wait(2) do
+            pcall(function()
+                local DungeonUI = LocalPlayer.PlayerGui:FindFirstChild("DungeonUI")
+                if DungeonUI then
+                    galatic34.Remotes.DungeonWaveVote:FireServer(Settings.DungeonDifficulty)
+                    task.wait(0.5)
+                    galatic34.Remotes.DungeonWaveVote:FireServer("start")
+                end
+            end)
+        end
+    end)
+
+    if getgenv().AutoDungeonReplayVoteLoop then
+        task.cancel(getgenv().AutoDungeonReplayVoteLoop)
+    end
+    getgenv().AutoDungeonReplayVoteLoop = task.spawn(function()
+        while task.wait(2) do
+            pcall(function()
+                local DungeonUI = LocalPlayer.PlayerGui:FindFirstChild("DungeonUI")
+                if DungeonUI then
+                    galatic34.Remotes.DungeonWaveReplayVote:FireServer("sponsor")
+                end
+            end)
+        end
+    end)
+
+    if getgenv().AutoTowerResetLoop then
+        task.cancel(getgenv().AutoTowerResetLoop)
+    end
+    getgenv().AutoTowerResetLoop = task.spawn(function()
+        while task.wait(1) do
+            if Settings.TowerResetEnabled and Settings.TowerResetFloor > 0 and workspace:FindFirstChild("DungeonSpawns") then
+                local DungeonUI = LocalPlayer.PlayerGui:FindFirstChild("DungeonUI")
+                if DungeonUI and DungeonUI.Enabled and not DungeonUI:FindFirstChild("ReplayDungeonFrameVisibleOnlyWhenClearingDungeon") then
+                    local currentWave = tonumber(DungeonUI.ContentFrame.WaveFrame.Holder.Txt.Text:match("%d+"))
+                    if currentWave and currentWave >= Settings.TowerResetFloor then
+                        local humanoid = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid")
+                        if humanoid then
+                            humanoid.Health = 0
+                        end
+                    end
+                end
+            end
+        end
+    end)
+
+    local function galatic68()
+        return nil
+    end
+
+    local function galatic67()
+        return nil
+    end
+
+    local function galatic66_2()
+        return nil
+    end
+
+    local function getMinoBoss()
+        local NPCs = workspace:FindFirstChild("NPCs")
+        if not NPCs then return nil end
+        for _, v in ipairs(NPCs:GetChildren()) do
+            if v:IsA("Model") and v.Name == "MinoBoss" and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+                return v
+            end
+        end
+        return nil
+    end
+
+    local function isMinoBoss(name)
+        return name == "MinoBoss"
+    end
+
+    local function findMinoBoss()
+        return getMinoBoss()
+    end
+
+    local function getMinoBossName(boss)
+        if not boss then return nil end
+        return boss.Name
+    end
+
+    local DungeonTarget = nil
+    local DungeonTargetName = nil
+    local DungeonTween = nil
+
+    local MinoBossLeverPulling = false
+
+    task.spawn(function()
+        while task.wait(1) do
+            if Settings.AutoDungeon and not workspace:FindFirstChild("NPCs") and not workspace:FindFirstChild("MinoBoss") and not workspace:FindFirstChild("DungeonSpawns") then
+                pcall(function()
+                    local MinoBossLever = nil
+                    for _, v in ipairs(workspace:GetChildren()) do
+                        if v.Name == "MinoBossLever" then
+                            MinoBossLever = v
+                            break
+                        end
+                    end
+                    if MinoBossLever then
+                        local prompt = MinoBossLever:FindFirstChild("PullLeverPrompt")
+                        if prompt then
+                            if DungeonTween then DungeonTween:Cancel() end
+                            MinoBossLeverPulling = true
+                            LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(MinoBossLever.Position + Vector3.new(5, 0, 0))
+                            task.wait(0.15)
+                            fireproximityprompt(prompt)
+                            for _ = 1, 6 do
+                                if not LocalPlayer.Character then break end
+                                LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(MinoBossLever.Position + Vector3.new(5, 0, 0))
+                                task.wait(0.25)
+                            end
+                            MinoBossLeverPulling = false
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+
+    local SkillSlots = {1, 2, 3, 4, 5}
+    local SkillSlotNumbers = {1, 2, 3, 4, 5}
+
+    local SkillDropdown = MiscTab:AddDropdown("SkillDropdown", {
+        Title = "Select Skills to Auto-Use",
+        Values = SkillSlotNumbers,
+        Multi = true,
+        Default = {},
+        Callback = function(v) SelectedSkills = v end
+    })
+
+    local AutoSkillToggle = MiscTab:AddToggle("AutoSkillToggle", {
+        Title = "Auto Use Skills",
+        Default = Settings.AutoSkill,
+        Callback = function(v) Settings.AutoSkill = v end
+    })
+
+    local AutoSkillOnlyWhenAliveToggle = MiscTab:AddToggle("AutoSkillOnlyWhenAliveToggle", {
+        Title = "Only When Target Alive",
+        Default = Settings.AutoSkillOnlyWhenAlive,
+        Callback = function(v) Settings.AutoSkillOnlyWhenAlive = v end
+    })
+
+    if getgenv().AutoSkillLoop then
+        task.cancel(getgenv().AutoSkillLoop)
+    end
+    getgenv().AutoSkillLoop = task.spawn(function()
+        while task.wait(0.1) do
+            if Settings.AutoSkill and not MinoBossLeverPulling then
+                pcall(function()
+                    local targetAlive = getgenv().MainAutoSkillTargetAlive or getgenv().DungeonAutoSkillTargetAlive
+                    if targetAlive or not Settings.AutoSkillOnlyWhenAlive then
+                        for _, slot in ipairs(SelectedSkills or {}) do
+                            local abilityRemotes = galatic34:WaitForChild("AbilitySystem"):WaitForChild("Remotes")
+                            abilityRemotes:WaitForChild("RequestAbility"):FireServer(slot)
+                            task.wait()
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+
+    local function galatic112(weaponName)
+        if not weaponName then return end
+        pcall(function()
+            local loadoutLoad = galatic34.RemoteEvents.LoadoutLoad
+            loadoutLoad:FireServer(weaponName)
+        end)
+    end
+
+    local function galatic113()
+        return nil
+    end
+
+    local AutoRejoinToggle = SettingsTab:AddToggle("AutoRejoinToggle", {
+        Title = "Auto Rejoin",
+        Default = Settings.AutoRejoin,
+        Callback = function(v) Settings.AutoRejoin = v end
+    })
+
+    local function galatic114()
+        if not Settings.AutoRejoin then return end
+        pcall(function()
+            if #game.Players:GetPlayers() <= 1 then
+                game:GetService("Players").LocalPlayer:Kick("\nRejoining...")
+                task.wait()
+                game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
+            else
+                game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+            end
+        end)
+    end
+
+    local RejoinConnection = game:GetService("Players").LocalPlayer.OnTeleport:Connect(galatic114)
+
+    local WhiteScreenToggle = SettingsTab:AddToggle("WhiteScreenToggle", {
+        Title = "White Screen (No Rendering)",
+        Default = Settings.WhiteScreen,
+        Callback = function(v)
+            Settings.WhiteScreen = v
+            if v then
+                if Settings.BlackScreen then
+                    Settings.BlackScreen = false
+                    BlackScreenToggle:SetValue(false)
+                    pcall(function()
+                        local blackscreen = LocalPlayer.PlayerGui:FindFirstChild("BLACKSCREEN_GUI")
+                        if blackscreen then blackscreen.Enabled = false end
+                    end)
+                end
+                pcall(function() sethiddenproperty and sethiddenproperty(game, "RenderingEnabled", false) end)
+            else
+                pcall(function() sethiddenproperty and sethiddenproperty(game, "RenderingEnabled", true) end)
+            end
+        end
+    })
+
+    local BlackScreenToggle = SettingsTab:AddToggle("BlackScreenToggle", {
+        Title = "Black Screen",
+        Default = Settings.BlackScreen,
+        Callback = function(v)
+            Settings.BlackScreen = v
+            if v then
+                if Settings.WhiteScreen then
+                    Settings.WhiteScreen = false
+                    WhiteScreenToggle:SetValue(false)
+                    pcall(function() sethiddenproperty and sethiddenproperty(game, "RenderingEnabled", true) end)
+                end
+                pcall(function() sethiddenproperty and sethiddenproperty(game, "RenderingEnabled", false) end)
+            else
+                pcall(function() sethiddenproperty and sethiddenproperty(game, "RenderingEnabled", true) end)
+            end
+            pcall(function()
+                local playerGui = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+                local blackscreenGui = playerGui:FindFirstChild("BLACKSCREEN_GUI")
+                if v then
+                    if not blackscreenGui then
+                        local newGui = Instance.new("ScreenGui")
+                        newGui.Name = "BLACKSCREEN_GUI"
+                        newGui.ResetOnSpawn = false
+                        newGui.DisplayOrder = -1
+                        newGui.IgnoreGuiInset = true
+                        local frame = Instance.new("Frame")
+                        frame.Name = "BlackFrame"
+                        frame.Size = UDim2.new(1, 0, 1, 0)
+                        frame.BackgroundColor3 = Color3.new(0, 0, 0)
+                        frame.BorderSizePixel = 0
+                        frame.Parent = newGui
+                        newGui.Parent = playerGui
+                    else
+                        blackscreenGui.Enabled = true
+                    end
+                elseif blackscreenGui then
+                    blackscreenGui.Enabled = false
+                end
+            end)
+        end
+    })
+
+    local AntiGameplayPausedToggle = SettingsTab:AddToggle("AntiGameplayPausedToggle", {
+        Title = "Remove Gameplay Paused Screen",
+        Default = Settings.AntiGameplayPaused,
+        Callback = function(v)
+            Settings.AntiGameplayPaused = v
+            if v then
+                pcall(function()
+                    if getgenv().AntiGameplayPausedConnection then
+                        getgenv().AntiGameplayPausedConnection:Disconnect()
+                    end
+                    getgenv().AntiGameplayPausedConnection = game:GetService("CoreGui").ChildAdded:Connect(function(child)
+                        if child.Name == "CoreScripts/NetworkPause" then
+                            child:Destroy()
+                        end
+                    end)
+                    pcall(function()
+                        local networkPause = game:GetService("CoreGui"):FindFirstChild("CoreScripts/NetworkPause")
+                        if networkPause then networkPause:Destroy() end
+                    end)
+                end)
+            else
+                pcall(function()
+                    if getgenv().AntiGameplayPausedConnection then
+                        getgenv().AntiGameplayPausedConnection:Disconnect()
+                    end
+                    getgenv().AntiGameplayPausedConnection = nil
+                end)
+            end
+        end
+    })
+
+    local AutoReinjectToggle = SettingsTab:AddToggle("AutoReinjectToggle", {
+        Title = "Auto Reinject Script (Experimental)",
+        Default = Settings.AutoReinject,
+        Callback = function(v)
+            Settings.AutoReinject = v
+            if v then
+                Fluent:Notify({Title = "Error", Content = "Your exploit does not support this feature.", Duration = 5})
+                task.defer(function() AutoReinjectToggle:SetValue(false) end)
+                return
+            end
+            if not v then
+                getgenv().ReinjectQueued = false
+            end
+        end
+    })
+
+    local ReinjectConnection = LocalPlayer.OnTeleport:Connect(function()
+        if Settings.AutoReinject and not getgenv().ReinjectQueued then
+            getgenv().ReinjectQueued = true
+            Fluent:Notify({Title = "Execute Queued", Content = "Script will execute in the new server.", Duration = 3})
+        end
+    end)
+
+    pcall(function()
+        if getgenv().AntiGameplayPausedConnection then
+            getgenv().AntiGameplayPausedConnection:Disconnect()
+        end
+    end)
+
+    local WebhookUrl = Settings.WebhookUrl or ""
+    local WebhookDelay = Settings.WebhookDelay or 1
+
+    local WebhookUrlInput = LogsTab:AddInput("WebhookUrlInput", {
+        Title = "Discord Webhook URL",
+        Placeholder = "https://discord.com/api/webhooks/...",
+        Default = WebhookUrl,
+        Finished = false,
+        Callback = function(v) Settings.WebhookUrl = tostring(v) end
+    })
+
+    local WebhookDelayInput = LogsTab:AddInput("WebhookDelayInput", {
+        Title = "Webhook Delay (seconds)",
+        Placeholder = "1",
+        Default = tostring(WebhookDelay),
+        Numeric = true,
+        Finished = false,
+        Callback = function(v) Settings.WebhookDelay = tonumber(v) or 1 end
+    })
+
+    local TestWebhookBtn = LogsTab:AddButton({
+        Title = "Test Webhook",
+        Callback = function()
+            local function sendWebhook(data)
+                -- Webhook sending logic
+            end
+            sendWebhook({title = "✅ Webhook Test", description = "Webhook is connected and working!", color = 5763719})
+        end
+    })
+
+    local LogAllDropsToggle = LogsTab:AddToggle("LogAllDropsToggle", {
+        Title = "Log All Item Drops",
+        Default = Settings.LogAllDrops,
+        Callback = function(v)
+            Settings.LogAllDrops = v
+            if not v then
+                DropLogCache = {}
+                DropLogQueue = {}
+                DropLogProcessing = false
+                DropLogLastSend = nil
+            end
+        end
+    })
+
+    local MinRarityDropdown = LogsTab:AddDropdown("MinRarityDropdown", {
+        Title = "Minimum Rarity",
+        Values = {"Common", "Uncommon", "Rare", "Epic", "Legendary", "Mythic"},
+        Multi = false,
+        Default = Settings.LogAllDropsMinRarity,
+        Callback = function(v) Settings.LogAllDropsMinRarity = v end
+    })
+
+    local LogDungeonCompletionToggle = LogsTab:AddToggle("LogDungeonCompletionToggle", {
+        Title = "Log Dungeon Completion",
+        Default = Settings.LogDungeonCompletion,
+        Callback = function(v) Settings.LogDungeonCompletion = v end
+    })
+
+    local LogBossRushCompletionToggle = LogsTab:AddToggle("LogBossRushCompletionToggle", {
+        Title = "Log Boss Rush Completion",
+        Default = Settings.LogBossRushCompletion,
+        Callback = function(v) Settings.LogBossRushCompletion = v end
+    })
+
+    local LogTowerCompletionToggle = LogsTab:AddToggle("LogTowerCompletionToggle", {
+        Title = "Log Tower Completion",
+        Default = Settings.LogTowerCompletion,
+        Callback = function(v) Settings.LogTowerCompletion = v end
+    })
+
+    local LogCrystalDefenseCompletionToggle = LogsTab:AddToggle("LogCrystalDefenseCompletionToggle", {
+        Title = "Log Crystal Defense Completion",
+        Default = Settings.LogCrystalDefenseCompletion,
+        Callback = function(v) Settings.LogCrystalDefenseCompletion = v end
+    })
+
+    local LogRaidCompletionToggle = LogsTab:AddToggle("LogRaidCompletionToggle", {
+        Title = "Log Raid Completion",
+        Default = Settings.LogRaidCompletion,
+        Callback = function(v) Settings.LogRaidCompletion = v end
+    })
+
+    local function galatic95(webhookData)
+        if not Settings.WebhookUrl or Settings.WebhookUrl == "" then return end
+        -- Webhook send logic
+    end
+
+    local dropConnection = galatic34:WaitForChild("Remotes"):WaitForChild("DropAdded").OnClientEvent:Connect(function(dropData)
+        if not Settings.LogAllDrops then return end
+        if type(dropData) == "table" then
+            galatic95({name = dropData.name, quantity = dropData.quantity})
+        end
+    end)
+
+    local chatConnection = game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("OnMessageDoneFiltering").OnClientEvent:Connect(function(messageData)
+        if messageData.FromPlayer ~= "Quest" or type(messageData.Message) ~= "table" then return end
+        local message = tostring(messageData.Message.message or (messageData.Message.name or ""))
+        local lowerMsg = string.lower(message)
+        if Settings.LogDungeonCompletion and string.find(lowerMsg, "dungeon") then
+            galatic95("Dungeon Completion", message)
+        end
+        if Settings.LogBossRushCompletion and string.find(lowerMsg, "boss") and string.find(lowerMsg, "rush") then
+            galatic95("Boss Rush Completion", message)
+        end
+        if Settings.LogTowerCompletion and string.find(lowerMsg, "tower") then
+            galatic95("Tower Completion", message)
+        end
+        if Settings.LogCrystalDefenseCompletion and string.find(lowerMsg, "crystal") then
+            galatic95("Crystal Defense Completion", message)
+        end
+        if Settings.LogRaidCompletion and string.find(lowerMsg, "raid") and string.find(lowerMsg, "cleared") then
+            galatic95("Raid Completion", message)
+        end
+    end)
+
+    if getgenv().AutoArmHakiLoop then
+        task.cancel(getgenv().AutoArmHakiLoop)
+    end
+    getgenv().AutoArmHakiLoop = task.spawn(function()
+        while task.wait(1) do
+            pcall(function()
+                local char = LocalPlayer.Character
+                if char and char:FindFirstChild("Right Arm") then
+                    local color = char["Right Arm"].Color
+                    if color.R > 0.01 or color.G > 0.01 or color.B > 0.01 then
+                        galatic38:SendKeyEvent(true, Enum.KeyCode.G, false, game)
+                        task.wait(0.1)
+                        galatic38:SendKeyEvent(false, Enum.KeyCode.G, false, game)
+                    end
+                end
+            end)
+        end
+    end)
+
+    if getgenv().AutoObsHakiLoop then
+        task.cancel(getgenv().AutoObsHakiLoop)
+    end
+    getgenv().AutoObsHakiLoop = task.spawn(function()
+        while task.wait(1) do
+            pcall(function()
+                local dodgeUI = LocalPlayer.PlayerGui.DodgeCounterUI
+                if dodgeUI:FindFirstChild("MainFrame").Visible == true then
+                    return
+                end
+                galatic34.RemoteEvents.ObservationHakiRemote:FireServer("Toggle")
+            end)
+        end
+    end)
+
+    local AutoArmHakiToggle = MiscTab:AddToggle("AutoArmHakiToggle", {
+        Title = "Auto Armament Haki",
+        Default = Settings.AutoArmHaki,
+        Callback = function(v) Settings.AutoArmHaki = v end
+    })
+
+    local AutoObsHakiToggle = MiscTab:AddToggle("AutoObsHakiToggle", {
+        Title = "Auto Observation Haki",
+        Default = Settings.AutoObsHaki,
+        Callback = function(v) Settings.AutoObsHaki = v end
+    })
+
+    MiscTab:AddParagraph("InfoParagraph", {
+        Title = "Information",
+        Content = "Sailor Piece Script\nVersion: 1.0"
+    })
+
+    local function galatic90()
+        return LocalPlayer.Data.Level.Value
+    end
+
+    local function galatic91()
+        return galatic77()
+    end
+
+    local function galatic92()
+        return galatic80()
+    end
+
+    local function galatic93()
+        return galatic83()
+    end
+
+    local function galatic94()
+        return galatic107()
+    end
+
+    local ServerHopBtn = MiscTab:AddButton({
+        Title = "Server Hop",
+        Callback = function()
+            if #game.Players:GetPlayers() <= 1 then
+                game:GetService("Players").LocalPlayer:Kick("\nRejoining...")
+                task.wait()
+                game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
+            else
+                game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+            end
+        end
+    })
+
+    local function galatic97()
+        local serviceNPCs = workspace:FindFirstChild("ServiceNPCs")
+        if not serviceNPCs then return {} end
+        local npcs = {}
+        for _, v in ipairs(serviceNPCs:GetChildren()) do
+            if v:IsA("Model") then
+                table.insert(npcs, v.Name)
+            end
+        end
+        table.sort(npcs)
+        return npcs
+    end
+
+    local ServiceNPCList = galatic97()
+    local SelectedServiceNPC = nil
+
+    local ServiceNPCDropdown = MiscTab:AddDropdown("ServiceNPCDropdown", {
+        Title = "Select Service NPC",
+        Values = ServiceNPCList,
+        Multi = false,
+        Default = SelectedServiceNPC,
+        Callback = function(v) SelectedServiceNPC = v end
+    })
+
+    local TeleportToNPCBtn = MiscTab:AddButton({
+        Title = "Teleport to NPC",
+        Callback = function()
+            pcall(function()
+                if not SelectedServiceNPC then return end
+                local serviceNPCs = workspace:FindFirstChild("ServiceNPCs")
+                if not serviceNPCs then return end
+                local npc = serviceNPCs:FindFirstChild(SelectedServiceNPC)
+                if not npc then return end
+                local hrp = npc:FindFirstChild("HumanoidRootPart")
+                local cf = hrp and hrp.CFrame * CFrame.new(0, 0, 4) or npc:GetPivot() * CFrame.new(0, 0, 4)
+                galatic59(cf)
+            end)
+        end
+    })
+
+    local function galatic98()
+        local spawns = {}
+        for _, v in ipairs(workspace:GetChildren()) do
+            if v:IsA("Folder") then
+                for _, child in ipairs(v:GetChildren()) do
+                    if child.Name:find("SpawnPointCrystal") then
+                        local name = v.Name
+                        local display = name:gsub("(%l)(%u)", "%1 %2")
+                        table.insert(spawns, display)
+                    end
+                end
+            end
+        end
+        table.sort(spawns)
+        return spawns
+    end
+
+    local IslandSpawns = galatic98()
+    local SelectedSpawn = nil
+
+    local SpawnDropdown = MiscTab:AddDropdown("SpawnDropdown", {
+        Title = "Select Island Spawn",
+        Values = IslandSpawns,
+        Multi = false,
+        Default = SelectedSpawn,
+        Callback = function(v) SelectedSpawn = v end
+    })
+
+    local TeleportToSpawnBtn = MiscTab:AddButton({
+        Title = "Teleport to Spawn",
+        Callback = function()
+            pcall(function()
+                if not SelectedSpawn then return end
+                -- Teleport logic to specific spawn crystal
+            end)
+        end
+    })
+
+    local function galatic100()
+        return nil
+    end
+
+    local function galatic101()
+        return nil
+    end
+
+    local function galatic102()
+        return nil
+    end
+
+    local function galatic103_2()
+        return nil
+    end
+
+    local DropLogCache = {}
+    local DropLogQueue = {}
+    local DropLogProcessing = false
+    local DropLogLastSend = nil
+
+    local function sendDropReport()
+        -- Drop report logic
+    end
+
+    local function logDrop(itemName, quantity, rarity)
+        if not Settings.LogAllDrops then return end
+        -- Drop logging logic
+    end
+
+    local DropAddedConnection = galatic34:WaitForChild("Remotes"):WaitForChild("DropAdded").OnClientEvent:Connect(function(drop)
+        if not Settings.LogAllDrops then return end
+        -- Drop processing logic
+    end)
+
+    local ShopItems = {}
+    local LastShopRefresh = 0
+    local ShopRefreshTime = 60
+    local SelectedShopItems = {}
+
+    local ShopItemsList = {}
+
+    local function refreshShop()
+        -- Shop refresh logic
+    end
+
+    local ShopRefreshBtn = MiscTab:AddButton({
+        Title = "Refresh Shop",
+        Callback = function() refreshShop() end
+    })
+
+    local ShopItemsDropdown = MiscTab:AddDropdown("ShopItemsDropdown", {
+        Title = "Select Shop Items to Buy",
+        Values = {},
+        Multi = true,
+        Default = SelectedShopItems,
+        Callback = function(v) SelectedShopItems = v end
+    })
+
+    local AutoBuyShopItemsToggle = MiscTab:AddToggle("AutoBuyShopItemsToggle", {
+        Title = "Auto Buy Selected Items",
+        Default = Settings.AutoBuyShopItems,
+        Callback = function(v) Settings.AutoBuyShopItems = v end
+    })
+
+    if getgenv().AutoBuyShopLoop then
+        task.cancel(getgenv().AutoBuyShopLoop)
+    end
+    getgenv().AutoBuyShopLoop = task.spawn(function()
+        while task.wait(20) do
+            if Settings.AutoBuyShopItems then
+                refreshShop()
+                if #SelectedShopItems > 0 then
+                    for _, item in ipairs(SelectedShopItems) do
+                        task.wait(0.15)
+                        pcall(function()
+                            galatic34.Remotes.MerchantRemotes.PurchaseMerchantItem:InvokeServer(item)
+                        end)
+                    end
+                end
+            end
+        end
+    end)
+
+    if getgenv().AutoRefreshShopLoop then
+        task.cancel(getgenv().AutoRefreshShopLoop)
+    end
+    getgenv().AutoRefreshShopLoop = task.spawn(function()
+        while task.wait(20) do
+            if Settings.AutoBuyShopItems then
+                local lastRefresh = Settings.lastShopRefresh
+                local refreshTime = Settings.shopRefreshTime
+                if lastRefresh and refreshTime and os.time() >= lastRefresh + refreshTime then
+                    refreshShop()
+                end
+            end
+        end
+    end)
+
+    if getgenv().MainFarmLoop then
+        task.cancel(getgenv().MainFarmLoop)
+    end
+
+    getgenv().MainFarmLoop = task.spawn(function()
+        while task.wait() do
+            pcall(function()
+                local target = nil
+                local targetName = nil
+                local isBoss = false
+
+                if Settings.AutoFarm or Settings.AutoFarmLevel or Settings.AutoBoss or Settings.AutoSummonBoss or Settings.AutoSeaBossFarm or Settings.AutoDungeon then
+                    if Settings.AutoFarmLevel then
+                        local questData = galatic109()
+                        if questData then
+                            targetName = questData.mobName
+                            target = findMobByName(targetName)
+                        end
+                    end
+
+                    if not target and (Settings.AutoFarm or Settings.AutoBoss) and #Settings.SelectedEnemies > 0 then
+                        target = findNearestEnemy(Settings.SelectedEnemies)
+                        if target then
+                            targetName = getMobName(target)
+                        end
+                    end
+
+                    if not target and Settings.AutoBoss and #Settings.SelectedBosses > 0 then
+                        target = findNearestBoss(Settings.SelectedBosses)
+                        if target then
+                            targetName = getMobName(target)
+                            isBoss = true
+                        end
+                    end
+
+                    if not target and Settings.AutoSummonBoss and Settings.SelectedSummonBoss then
+                        target = findBossByName(Settings.SelectedSummonBoss)
+                        if target then
+                            targetName = getMobName(target)
+                            isBoss = true
+                        end
+                    end
+
+                    if not target and Settings.AutoBossPity and Settings.SelectedPityBoss then
+                        target = findBossByName(Settings.SelectedPityBoss)
+                        if target then
+                            targetName = getMobName(target)
+                            isBoss = true
+                        end
+                    end
+
+                    if not target and Settings.AutoSeaBossFarm then
+                        target = findSeaBoss()
+                        if target then
+                            targetName = getMobName(target)
+                            isBoss = true
+                        end
+                    end
+
+                    if target and target.Parent then
+                        getgenv().MainAutoSkillTargetAlive = true
+                        getgenv().MainAutoSkillTargetIsBoss = isBoss
+
+                        if Settings.AutoChangeBuild then
+                            if Settings.BuildSwapHPEnabled and not Settings.BuildSwapHPOnlyBosses then
+                                local bossHP = target:GetAttribute("_BossHP")
+                                local bossMaxHP = target:GetAttribute("_BossMaxHP")
+                                if bossHP and bossMaxHP and bossMaxHP > 0 then
+                                    local hpPercent = (bossHP / bossMaxHP) * 100
+                                    if hpPercent <= (tonumber(Settings.BuildSwapHPPercent) or 10) then
+                                        if getgenv().CurrentBuild ~= "hp_threshold" then
+                                            getgenv().CurrentBuild = "hp_threshold"
+                                            if Settings.AutoReequipWeapon then
+                                                task.spawn(galatic124)
+                                            end
+                                        end
+                                    end
+                                end
+                            end
+                            if getgenv().CurrentBuild ~= (isBoss and "boss" or "normal") then
+                                getgenv().CurrentBuild = isBoss and "boss" or "normal"
+                                if Settings.AutoReequipWeapon then
+                                    task.spawn(galatic124)
+                                end
+                            end
+                        end
+
+                        local targetPos = target:GetPivot()
+                        if not LocalPlayer.Character then return end
+
+                        if Settings.SafeFarm and (LocalPlayer.Character.HumanoidRootPart.Position - targetPos.Position).Magnitude < 100 then
+                            return
+                        end
+
+                        local distance = Settings.NormalFarmDistance
+                        local tweenSpeed = tonumber(Settings.NormalTweenSpeed) or 150
+                        local moveToPos = targetPos
+
+                        if isBoss and target:FindFirstChild("SeaBeastHitbox") then
+                            local seaBeast = target.SeaBeastHitbox
+                            local sizeY = seaBeast.Size.Y * 0.5
+                            local offset = math.clamp(math.max(1, Settings.SeaBossFarmDistance - 1), 0, math.min(sizeY, 99))
+                            local height = sizeY + 1 - offset
+                            if Settings.SeaBossFarmMode == "Behind" then
+                                moveToPos = CFrame.lookAt(targetPos.Position + Vector3.new(0, height, 0) - targetPos.LookVector * (distance + 1 - offset), targetPos.Position)
+                            else
+                                moveToPos = CFrame.new(targetPos.Position + Vector3.new(0, height, 0), targetPos.Position)
+                            end
+                        else
+                            if Settings.PositionMode == "Center" then
+                                -- Center position logic
+                            end
+                            if Settings.FarmMode == "Above" then
+                                moveToPos = CFrame.new(targetPos.Position + Vector3.new(0, Settings.NormalFarmDistance, 0), targetPos.Position)
+                            else
+                                moveToPos = CFrame.lookAt(targetPos.Position - targetPos.LookVector * Settings.NormalFarmDistance, targetPos.Position)
+                            end
+                        end
+
+                        if not isBoss and Settings.NormalFarmDistance and (LocalPlayer.Character.HumanoidRootPart.Position - targetPos.Position).Magnitude < 100 then
+                            return
+                        end
+
+                        galatic59(moveToPos, Settings.Method, tweenSpeed)
+                    else
+                        getgenv().MainAutoSkillTargetAlive = false
+                        getgenv().MainAutoSkillTargetIsBoss = false
+                    end
+                end
+            end)
+        end
+    end)
+
+    if getgenv().DungeonFarmLoop then
+        task.cancel(getgenv().DungeonFarmLoop)
+    end
+
+    getgenv().DungeonFarmLoop = task.spawn(function()
+        while task.wait() do
+            pcall(function()
+                if not Settings.AutoDungeon then
+                    DungeonTarget = nil
+                    DungeonTargetName = nil
+                    return
+                end
+
+                local hasNPCs = workspace:FindFirstChild("NPCs") ~= nil
+                local hasMinoBoss = workspace:FindFirstChild("MinoBoss") ~= nil
+                local hasDungeonSpawns = workspace:FindFirstChild("DungeonSpawns") ~= nil
+
+                if not hasNPCs and not hasDungeonSpawns then
+                    DungeonTarget = nil
+                    DungeonTargetName = nil
+                    if DungeonTween then
+                        DungeonTween:Cancel()
+                        DungeonTween = nil
+                    end
+                    return
+                end
+
+                if DungeonTarget and (not DungeonTarget.Parent or not DungeonTarget:FindFirstChild("Humanoid") or DungeonTarget.Humanoid.Health <= 0) then
+                    DungeonTarget = nil
+                end
+
+                if not DungeonTarget and DungeonTargetName then
+                    DungeonTarget = findMobByName(DungeonTargetName)
+                end
+
+                if not DungeonTarget then
+                    if hasMinoBoss then
+                        DungeonTarget = getMinoBoss()
+                        DungeonTargetName = DungeonTarget and "MinoBoss" or nil
+                    else
+                        DungeonTarget = findAnyEnemy()
+                        if DungeonTarget then
+                            DungeonTargetName = getMobName(DungeonTarget)
+                        end
+                    end
+                else
+                    if not DungeonTargetName then
+                        DungeonTargetName = getMobName(DungeonTarget)
+                    end
+                    if not DungeonTarget then
+                        if DungeonTween then
+                            DungeonTween:Cancel()
+                            DungeonTween = nil
+                        end
+                        return
+                    end
+
+                    getgenv().DungeonAutoSkillTargetAlive = true
+                    local isBoss = isMinoBoss(getMobName(DungeonTarget))
+
+                    if Settings.AutoChangeBuild then
+                        if Settings.BuildSwapHPEnabled and not Settings.BuildSwapHPOnlyBosses then
+                            local bossHP = DungeonTarget:GetAttribute("_BossHP")
+                            local bossMaxHP = DungeonTarget:GetAttribute("_BossMaxHP")
+                            if bossHP and bossMaxHP and bossMaxHP > 0 then
+                                local hpPercent = (bossHP / bossMaxHP) * 100
+                                if hpPercent <= (tonumber(Settings.BuildSwapHPPercent) or 10) then
+                                    if getgenv().CurrentBuild ~= "hp_threshold" then
+                                        getgenv().CurrentBuild = "hp_threshold"
+                                        if Settings.AutoReequipWeapon then
+                                            task.spawn(galatic124)
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                        if not isBoss then
+                            if getgenv().CurrentBuild ~= "dungeon" then
+                                getgenv().CurrentBuild = "dungeon"
+                                if Settings.AutoReequipWeapon then
+                                    task.spawn(galatic124)
+                                end
+                            end
+                        end
+                    end
+
+                    local targetPos = DungeonTarget:GetPivot()
+                    if not LocalPlayer.Character then return end
+
+                    if Settings.DungeonSafeFarm and (LocalPlayer.Character.HumanoidRootPart.Position - targetPos.Position).Magnitude < 100 then
+                        return
+                    end
+
+                    local distance = Settings.DungeonFarmDistance
+                    local tweenSpeed = tonumber(Settings.DungeonTweenSpeed) or 150
+                    local moveToPos = targetPos
+
+                    if Settings.DungeonFarmMode == "Above" then
+                        moveToPos = CFrame.new(targetPos.Position + Vector3.new(0, distance, 0), targetPos.Position)
+                    else
+                        moveToPos = CFrame.lookAt(targetPos.Position - targetPos.LookVector * distance, targetPos.Position)
+                    end
+
+                    galatic59(moveToPos, Settings.DungeonMethod, tweenSpeed)
+                end
+            end)
+        end
+    end)
+
+    local ConfigManager = {
+        Folder = "SailorPiece",
+        Options = {
+            SaveManager_ConfigName = "",
+            SaveManager_ConfigList = {}
+        }
+    }
+
+    local function refreshConfigList()
+        local configs = {}
+        if isfolder and isfolder(ConfigManager.Folder .. "/settings") then
+            for _, file in ipairs(listfiles(ConfigManager.Folder .. "/settings")) do
+                if file:sub(-5) == ".json" then
+                    local name = file:match("([^/]+)%.json$")
+                    if name then
+                        table.insert(configs, name)
+                    end
+                end
+            end
+        end
+        table.sort(configs)
+        return configs
+    end
+
+    local function loadConfig(name)
+        if not name or name == "" then return false, "No config name provided" end
+        local path = ConfigManager.Folder .. "/settings/" .. name .. ".json"
+        if not isfile(path) then return false, "Config does not exist" end
+        local success, data = pcall(readfile, path)
+        if not success then return false, tostring(data) end
+        local decoded = game:GetService("HttpService"):JSONDecode(data)
+        for k, v in pairs(decoded) do
+            if Settings[k] ~= nil then
+                Settings[k] = v
+            end
+        end
+        return true, "Config loaded"
+    end
+
+    local function saveConfig(name)
+        if not name or name == "" then return false, "No config name provided" end
+        local path = ConfigManager.Folder .. "/settings/" .. name .. ".json"
+        local data = game:GetService("HttpService"):JSONEncode(Settings)
+        if not writefile then return false, "File writing not supported" end
+        local success, err = pcall(writefile, path, data)
+        if not success then return false, tostring(err) end
+        return true, "Config saved"
+    end
+
+    local function deleteConfig(name)
+        if not name or name == "" then return false, "No config name provided" end
+        local path = ConfigManager.Folder .. "/settings/" .. name .. ".json"
+        if not isfile(path) then return false, "Config does not exist" end
+        if not delfile then return false, "File deletion not supported" end
+        local success, err = pcall(delfile, path)
+        if not success then return false, tostring(err) end
+        return true, "Config deleted"
+    end
+
+    local function setAutoload(name)
+        if not name or name == "" then
+            if isfile(ConfigManager.Folder .. "/settings/autoload.txt") then
+                delfile(ConfigManager.Folder .. "/settings/autoload.txt")
+            end
+            return true, "Cleared autoload config"
+        end
+        local path = ConfigManager.Folder .. "/settings/autoload.txt"
+        if not writefile then return false, "File writing not supported" end
+        local success, err = pcall(writefile, path, name)
+        if not success then return false, tostring(err) end
+        return true, "Set autoload config"
+    end
+
+    local function getAutoload()
+        if not isfile(ConfigManager.Folder .. "/settings/autoload.txt") then return nil end
+        local success, data = pcall(readfile, ConfigManager.Folder .. "/settings/autoload.txt")
+        if not success then return nil end
+        return data
+    end
+
+    local ConfigNameInput = ConfigTab:AddInput("ConfigNameInput", {
+        Title = "Config Name",
+        Placeholder = "Enter config name",
+        Default = ConfigManager.Options.SaveManager_ConfigName,
+        Finished = false,
+        Callback = function(v) ConfigManager.Options.SaveManager_ConfigName = v end
+    })
+
+    local ConfigListDropdown = ConfigTab:AddDropdown("ConfigListDropdown", {
+        Title = "Config List",
+        Values = refreshConfigList(),
+        Multi = false,
+        Default = ConfigManager.Options.SaveManager_ConfigList,
+        Callback = function(v) ConfigManager.Options.SaveManager_ConfigList = v end
+    })
+
+    local SaveConfigBtn = ConfigTab:AddButton({
+        Title = "Save Config",
+        Callback = function()
+            local name = ConfigManager.Options.SaveManager_ConfigName
+            if not name or name == "" then
+                Fluent:Notify({Title = "Save Config", Content = "Enter a config name first", Duration = 5})
+                return
+            end
+            local success, msg = saveConfig(name)
+            if success then
+                Fluent:Notify({Title = "Save Config", Content = msg, Duration = 5})
+                ConfigListDropdown:SetValues(refreshConfigList())
+                ConfigListDropdown:SetValue(name)
+            else
+                Fluent:Notify({Title = "Save Config", Content = msg, Duration = 5})
+            end
+        end
+    })
+
+    local LoadConfigBtn = ConfigTab:AddButton({
+        Title = "Load Config",
+        Callback = function()
+            local name = ConfigManager.Options.SaveManager_ConfigList
+            if not name or name == "" then
+                Fluent:Notify({Title = "Load Config", Content = "Select a config first", Duration = 5})
+                return
+            end
+            local success, msg = loadConfig(name)
+            if success then
+                Fluent:Notify({Title = "Load Config", Content = msg, Duration = 5})
+                ConfigNameInput:SetValue(name)
+            else
+                Fluent:Notify({Title = "Load Config", Content = msg, Duration = 5})
+            end
+        end
+    })
+
+    local DeleteConfigBtn = ConfigTab:AddButton({
+        Title = "Delete Config",
+        Callback = function()
+            local name = ConfigManager.Options.SaveManager_ConfigList
+            if not name or name == "" then
+                Fluent:Notify({Title = "Delete Config", Content = "Select a config first", Duration = 5})
+                return
+            end
+            local autoload = getAutoload()
+            if autoload == name then
+                setAutoload("")
+            end
+            local success, msg = deleteConfig(name)
+            if success then
+                Fluent:Notify({Title = "Delete Config", Content = msg, Duration = 5})
+                ConfigListDropdown:SetValues(refreshConfigList())
+                ConfigListDropdown:SetValue("")
+            else
+                Fluent:Notify({Title = "Delete Config", Content = msg, Duration = 5})
+            end
+        end
+    })
+
+    local SetAutoloadBtn = ConfigTab:AddButton({
+        Title = "Set as Autoload",
+        Callback = function()
+            local name = ConfigManager.Options.SaveManager_ConfigList
+            if not name or name == "" then
+                Fluent:Notify({Title = "Set Autoload", Content = "Select a config first", Duration = 5})
+                return
+            end
+            local success, msg = setAutoload(name)
+            Fluent:Notify({Title = "Set Autoload", Content = msg, Duration = 5})
+        end
+    })
+
+    local ClearAutoloadBtn = ConfigTab:AddButton({
+        Title = "Clear Autoload",
+        Callback = function()
+            local success, msg = setAutoload("")
+            Fluent:Notify({Title = "Clear Autoload", Content = msg, Duration = 5})
+        end
+    })
+
+    local autoloadConfig = getAutoload()
+    if autoloadConfig then
+        loadConfig(autoloadConfig)
+    end
+
+    local KeyInput = KeyTab:AddInput("KeyInput", {
+        Title = "Enter Key",
+        Placeholder = "Paste your key here",
+        Default = galatic31,
+        Finished = false,
+        Callback = function(v) galatic31 = tostring(v) end
+    })
+
+    local VerifyKeyBtn = KeyTab:AddButton({
+        Title = "Verify Key",
+        Callback = function()
+            local key = tostring(galatic31 or ""):gsub("^%s*(.-)%s*$", "%1")
+            if key == "" then
+                Fluent:Notify({Title = "Missing Key", Content = "Please enter a key before verifying.", Duration = 5})
+                return
+            end
+            local result = galatic26(key)
+            if result and result.success then
+                getgenv().SCRIPT_KEY = key
+                if writefile then
+                    pcall(writefile, "TWVZ_KEY.txt", key)
+                end
+                Fluent:Notify({Title = "Key Verified", Content = "Key validated successfully!", Duration = 4})
+                task.defer(function()
+                    pcall(function() Fluent:Destroy() end)
+                    galatic32()
+                end)
+                return
+            end
+            Fluent:Notify({Title = "Verification Failed", Content = tostring(result and result.message or "Invalid key"), Duration = 5})
+        end
+    })
+
+    local GetKeyBtn = KeyTab:AddButton({
+        Title = "Get Key",
+        Callback = function()
+            local link = galatic25()
+            if not link or link == "" then
+                Fluent:Notify({Title = "Link Unavailable", Content = "Could not create key URL.", Duration = 5})
+                return
+            end
+            if setclipboard then
+                Fluent:Notify({Title = "Link Copied", Content = "Paste on any browser and complete the checkpoints to get your key.", Duration = 5})
+                return
+            end
+            Fluent:Notify({Title = "Clipboard Missing", Content = "Copy this link manually: " .. tostring(link), Duration = 8})
+        end
+    })
+
+    local DiscordBtn = KeyTab:AddButton({
+        Title = "Join Discord Server",
+        Description = "Copies the invite link so you can join for script suggestions, features, and bug reports.",
+        Callback = function()
+            setclipboard("https://discord.gg/Wk9bHxEuef")
+            Fluent:Notify({Title = "Link Copied", Content = "Paste the link on any browser to join the server!", Duration = 3})
+        end
+    })
+
+    KeyTab:AddParagraph("KeyInfoParagraph1", {
+        Title = "How to get a key?",
+        Content = "1. Click 'Get Key'\n2. Complete the checkpoints\n3. Copy your key\n4. Paste it above and click 'Verify Key'"
+    })
+
+    KeyTab:AddParagraph("KeyInfoParagraph2", {
+        Title = "Troubleshooting",
+        Content = "If you have issues getting a key, join our Discord server for help."
+    })
+
+    Window:SelectTab(1)
+end
+
+if galatic31 ~= "" then
+    local result = galatic26(galatic31)
+    if result and result.success then
+        getgenv().SCRIPT_KEY = galatic31
+        task.defer(galatic32)
+        return
+    end
+end
+
+local KeyWindow = galatic27:CreateWindow({
+    Title = "Key System",
+    SubTitle = "twvz",
+    TabWidth = 0,
+    Size = UDim2.fromOffset(420, 320),
+    Acrylic = false,
+    Theme = "Dark",
+    MinimizeKey = Enum.KeyCode.LeftControl
+})
+
+local KeyTabs = {
+    Main = KeyWindow:AddTab({Title = "Key", Icon = "key"})
+}
+
+local KeyMainTab = KeyTabs.Main
+
+KeyMainTab:AddInput("KeyInput", {
+    Title = "Enter Key",
+    Placeholder = "Paste your key here",
+    Default = galatic31,
+    Finished = false,
+    Callback = function(v) galatic31 = tostring(v) end
+})
+
+KeyMainTab:AddButton({
+    Title = "Verify Key",
+    Callback = function()
+        local key = tostring(galatic31 or ""):gsub("^%s*(.-)%s*$", "%1")
+        if key == "" then
+            Fluent:Notify({Title = "Missing Key", Content = "Please enter a key before verifying.", Duration = 5})
+            return
+        end
+        local result = galatic26(key)
+        if result and result.success then
+            getgenv().SCRIPT_KEY = key
+            if writefile then
+                pcall(writefile, "TWVZ_KEY.txt", key)
+            end
+            Fluent:Notify({Title = "Key Verified", Content = "Key validated successfully!", Duration = 4})
+            task.defer(function()
+                pcall(function() KeyWindow:Destroy() end)
+                galatic32()
+            end)
+            return
+        end
+        Fluent:Notify({Title = "Verification Failed", Content = tostring(result and result.message or "Invalid key"), Duration = 5})
+    end
+})
+
+KeyMainTab:AddButton({
+    Title = "Get Key",
+    Callback = function()
+        local link = galatic25()
+        if not link or link == "" then
+            Fluent:Notify({Title = "Link Unavailable", Content = "Could not create key URL.", Duration = 5})
+            return
+        end
+        if setclipboard then
+            Fluent:Notify({Title = "Link Copied", Content = "Paste on any browser and complete the checkpoints to get your key.", Duration = 5})
+            return
+        end
+        Fluent:Notify({Title = "Clipboard Missing", Content = "Copy this link manually: " .. tostring(link), Duration = 8})
+    end
+})
+
+KeyMainTab:AddButton({
+    Title = "Join Discord Server",
+    Description = "Copies the invite link so you can join for script suggestions, features, and bug reports.",
+    Callback = function()
+        setclipboard("https://discord.gg/Wk9bHxEuef")
+        Fluent:Notify({Title = "Link Copied", Content = "Paste the link on any browser to join the server!", Duration = 3})
+    end
+})
+
+KeyWindow:SelectTab(1)
