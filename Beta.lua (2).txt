@@ -2217,7 +2217,7 @@ Components.Element = (function()
 		local Options = Options or {}
 
 		Element.TitleLabel = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+			FontFace = Font.new("rbxasset://fonts/families/SourceSans.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
 			Text = Title,
 			TextColor3 = Color3.fromRGB(240, 240, 240),
 			TextSize = 13,
@@ -2267,7 +2267,7 @@ Components.Element = (function()
 		Element.TitleLabel.Parent = Element.Header
 
 		Element.DescLabel = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+			FontFace = Font.new("rbxasset://fonts/families/SourceSans.json", Enum.FontWeight.Bold),
 			Text = Desc,
 			TextColor3 = Color3.fromRGB(200, 200, 200),
 			TextSize = 12,
@@ -2630,30 +2630,27 @@ Components.Tab = (function()
 				CornerRadius = UDim.new(0, 6),
 			}),
 			New("TextLabel", {
-    AnchorPoint = Vector2.new(0, 0.5),
-    Position = not fischbypass and Icon and UDim2.new(0, 30, 0.5, 0) or UDim2.new(0, 12, 0.5, 0),
-    Text = Title,
-    RichText = true,
-    TextColor3 = Color3.fromRGB(255, 255, 255),
-    TextTransparency = 0,
-
-    FontFace = Font.new(
-        "rbxasset://fonts/families/SourceSansPro.json",
-        Enum.FontWeight.Regular,
-        Enum.FontStyle.Normal
-    ),
-
-    TextSize = 12,
-    TextXAlignment = "Left",
-    TextYAlignment = "Center",
-    Size = UDim2.new(1, -12, 1, 0),
-    BackgroundTransparency = 1,
-    ZIndex = 11,
-
-    ThemeTag = {
-        TextColor3 = "Text",
-    },
-}),
+				AnchorPoint = Vector2.new(0, 0.5),
+				Position = not fischbypass and Icon and UDim2.new(0, 30, 0.5, 0) or UDim2.new(0, 12, 0.5, 0),
+				Text = Title,
+				RichText = true,
+				TextColor3 = Color3.fromRGB(255, 255, 255),
+				TextTransparency = 0,
+				FontFace = Font.new(
+					"rbxasset://fonts/families/SourceSans.json",
+					Enum.FontWeight.Bold,
+					Enum.FontStyle.Normal
+				),
+				TextSize = 12,
+				TextXAlignment = "Left",
+				TextYAlignment = "Center",
+				Size = UDim2.new(1, -12, 1, 0),
+				BackgroundTransparency = 1,
+				ZIndex = 11,
+				ThemeTag = {
+					TextColor3 = "Text",
+				},
+			}),
 			New("ImageLabel", {
 				AnchorPoint = Vector2.new(0, 0.5),
 				Size = UDim2.fromOffset(16, 16),
@@ -2861,7 +2858,7 @@ Components.Tab = (function()
 					RichText = true,
 					TextColor3 = Color3.fromRGB(255, 255, 255),
 					TextTransparency = 0,
-					FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+					FontFace = Font.new("rbxasset://fonts/families/SourceSans.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
 					TextSize = 12,
 					TextXAlignment = "Left",
 					TextYAlignment = "Center",
@@ -3304,7 +3301,7 @@ Components.Button = (function()
 		local Button = {}
 
 		Button.Title = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+			FontFace = Font.new("rbxasset://fonts/families/SourceSans.json", Enum.FontWeight.Bold),
 			TextColor3 = Color3.fromRGB(200, 200, 200),
 			TextSize = 14,
 			TextWrapped = true,
@@ -3432,27 +3429,23 @@ Components.Dialog = (function()
 		})
 
 		NewDialog.Title = New("TextLabel", {
-    FontFace = Font.new(
-        "rbxasset://fonts/families/SourceSansPro.json",
-        Enum.FontWeight.SemiBold,
-        Enum.FontStyle.Normal
-    ),
-
-    Text = "Dialog",
-    TextColor3 = Color3.fromRGB(240, 240, 240),
-    TextSize = 22,
-    TextXAlignment = Enum.TextXAlignment.Left,
-
-    Size = UDim2.new(1, 0, 0, 22),
-    Position = UDim2.fromOffset(20, 25),
-
-    BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-    BackgroundTransparency = 1,
-
-    ThemeTag = {
-        TextColor3 = "Text",
-    },
-})
+			FontFace = Font.new(
+				"rbxasset://fonts/families/SourceSans.json",
+				Enum.FontWeight.SemiBold,
+				Enum.FontStyle.Normal
+			),
+			Text = "Dialog",
+			TextColor3 = Color3.fromRGB(240, 240, 240),
+			TextSize = 22,
+			TextXAlignment = Enum.TextXAlignment.Left,
+			Size = UDim2.new(1, 0, 0, 22),
+			Position = UDim2.fromOffset(20, 25),
+			BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+			BackgroundTransparency = 1,
+			ThemeTag = {
+				TextColor3 = "Text",
+			},
+		})
 
 		NewDialog.Scale = New("UIScale", {
 			Scale = 1,
@@ -3577,7 +3570,7 @@ Components.Notification = (function()
 			RichText = true,
 			TextColor3 = Color3.fromRGB(255, 255, 255),
 			TextTransparency = 0,
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+			FontFace = Font.new("rbxasset://fonts/families/SourceSans.json", Enum.FontWeight.Bold),
 			TextSize = 13,
 			TextXAlignment = "Left",
 			TextYAlignment = "Center",
@@ -3590,7 +3583,7 @@ Components.Notification = (function()
 		})
 
 		NewNotification.ContentLabel = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+			FontFace = Font.new("rbxasset://fonts/families/SourceSans.json", Enum.FontWeight.Bold),
 			Text = Config.Content,
 			TextColor3 = Color3.fromRGB(240, 240, 240),
 			TextSize = 14,
@@ -3606,7 +3599,7 @@ Components.Notification = (function()
 		})
 
 		NewNotification.SubContentLabel = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+			FontFace = Font.new("rbxasset://fonts/families/SourceSans.json", Enum.FontWeight.Bold),
 			Text = Config.SubContent,
 			TextColor3 = Color3.fromRGB(240, 240, 240),
 			TextSize = 14,
@@ -3779,7 +3772,7 @@ Components.Textbox = (function()
 		local Textbox = {}
 
 		Textbox.Input = New("TextBox", {
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+			FontFace = Font.new("rbxasset://fonts/families/SourceSans.json", Enum.FontWeight.Bold),
 			TextColor3 = Color3.fromRGB(200, 200, 200),
 			TextSize = 14,
 			TextXAlignment = Enum.TextXAlignment.Left,
@@ -3993,45 +3986,44 @@ Components.TitleBar = (function()
 				}) or nil,
 
 				New("TextLabel", {
-    RichText = true,
-    Text = Config.Title,
-    FontFace = Font.new(
-        "rbxasset://fonts/families/SourceSansPro.json",
-        Enum.FontWeight.Regular,
-        Enum.FontStyle.Normal
-    ),
-    TextSize = 12,
-    TextXAlignment = "Left",
-    TextYAlignment = "Center",
-    Size = UDim2.fromScale(0, 1),
-    AutomaticSize = Enum.AutomaticSize.X,
-    BackgroundTransparency = 1,
-    LayoutOrder = Config.Icon and 2 or 1,
-    ThemeTag = {
-        TextColor3 = "Text",
-    },
-}),
-
-Config.SubTitle and New("TextLabel", {
-    RichText = true,
-    Text = Config.SubTitle,
-    TextTransparency = 0.4,
-    FontFace = Font.new(
-        "rbxasset://fonts/families/SourceSansPro.json",
-        Enum.FontWeight.Regular,
-        Enum.FontStyle.Normal
-    ),
-    TextSize = 12,
-    TextXAlignment = "Left",
-    TextYAlignment = "Center",
-    Size = UDim2.fromScale(0, 1),
-    AutomaticSize = Enum.AutomaticSize.X,
-    BackgroundTransparency = 1,
-    LayoutOrder = Config.Icon and 3 or 2,
-    ThemeTag = {
-        TextColor3 = "Text",
-    },
-}) or nil,
+					RichText = true,
+					Text = Config.Title,
+					FontFace = Font.new(
+						"rbxasset://fonts/families/SourceSans.json",
+						Enum.FontWeight.Bold,
+						Enum.FontStyle.Normal
+					),
+					TextSize = 12,
+					TextXAlignment = "Left",
+					TextYAlignment = "Center",
+					Size = UDim2.fromScale(0, 1),
+					AutomaticSize = Enum.AutomaticSize.X,
+					BackgroundTransparency = 1,
+					LayoutOrder = Config.Icon and 2 or 1,
+					ThemeTag = {
+						TextColor3 = "Text",
+					},
+				}),
+				Config.SubTitle and New("TextLabel", {
+					RichText = true,
+					Text = Config.SubTitle,
+					TextTransparency = 0.4,
+					FontFace = Font.new(
+						"rbxasset://fonts/families/SourceSans.json",
+						Enum.FontWeight.Bold,
+						Enum.FontStyle.Normal
+					),
+					TextSize = 12,
+					TextXAlignment = "Left",
+					TextYAlignment = "Center",
+					Size = UDim2.fromScale(0, 1),
+					AutomaticSize = Enum.AutomaticSize.X,
+					BackgroundTransparency = 1,
+					LayoutOrder = Config.Icon and 3 or 2,
+					ThemeTag = {
+						TextColor3 = "Text",
+					},
+				}) or nil,
 
 			}),
 			New("Frame", {
@@ -4425,7 +4417,7 @@ Components.Window = (function()
 		})
 
 		local SearchInput = New("TextBox", {
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+			FontFace = Font.new("rbxasset://fonts/families/SourceSans.json", Enum.FontWeight.Bold),
 			TextColor3 = Color3.fromRGB(200, 200, 200),
 			TextSize = 13,
 			TextXAlignment = Enum.TextXAlignment.Left,
@@ -4696,7 +4688,7 @@ Components.Window = (function()
 				BackgroundTransparency = 1,
 				TextXAlignment = Enum.TextXAlignment.Left,
 				TextYAlignment = Enum.TextYAlignment.Bottom,
-				FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+				FontFace = Font.new("rbxasset://fonts/families/SourceSans.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
 				TextSize = 13,
 				Text = titleText,
 				Size = UDim2.new(1, -avatarSize - 12, 0.5, 0),
@@ -4710,7 +4702,7 @@ Components.Window = (function()
 				BackgroundTransparency = 1,
 				TextXAlignment = Enum.TextXAlignment.Left,
 				TextYAlignment = Enum.TextYAlignment.Top,
-				FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+				FontFace = Font.new("rbxasset://fonts/families/SourceSans.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
 				TextSize = 12,
 				TextTransparency = 0.2,
 				Text = subtitleText,
@@ -5162,7 +5154,7 @@ Components.Window = (function()
 			})
 
 			local Content = New("TextLabel", {
-				FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+				FontFace = Font.new("rbxasset://fonts/families/SourceSans.json", Enum.FontWeight.Bold),
 				Text = Config.Content,
 				TextColor3 = Color3.fromRGB(240, 240, 240),
 				TextSize = 14,
@@ -5405,7 +5397,7 @@ ElementsTable.Dropdown = (function()
 		local container = self.Container
 
 		local DropdownDisplay = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+			FontFace = Font.new("rbxasset://fonts/families/SourceSans.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
 			Text = "",
 			TextColor3 = Color3.fromRGB(240, 240, 240),
 			TextSize = 14,
@@ -5499,7 +5491,7 @@ ElementsTable.Dropdown = (function()
 			})
 
 			SearchBox = New("TextBox", {
-				FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+				FontFace = Font.new("rbxasset://fonts/families/SourceSans.json", Enum.FontWeight.Bold),
 				TextColor3 = Color3.fromRGB(200, 200, 200),
 				TextSize = 13,
 				TextXAlignment = Enum.TextXAlignment.Left,
@@ -6018,7 +6010,7 @@ ElementsTable.Dropdown = (function()
 				})
 
 				local ButtonLabel = New("TextLabel", {
-					FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+					FontFace = Font.new("rbxasset://fonts/families/SourceSans.json", Enum.FontWeight.Bold),
 					Text = Value,
 					TextColor3 = Color3.fromRGB(200, 200, 200),
 					TextSize = 13,
@@ -6312,7 +6304,7 @@ ElementsTable.Slider = (function()
 		})
 
 		local SliderDisplay = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+			FontFace = Font.new("rbxasset://fonts/families/SourceSans.json", Enum.FontWeight.Bold),
 			Text = "Value",
 			TextSize = 12,
 			TextWrapped = true,
@@ -6328,7 +6320,7 @@ ElementsTable.Slider = (function()
 		})
 
 		local SliderInput = New("TextBox", {
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+			FontFace = Font.new("rbxasset://fonts/families/SourceSans.json", Enum.FontWeight.Bold),
 			Text = "",
 			TextSize = 12,
 			TextXAlignment = Enum.TextXAlignment.Right,
@@ -6636,7 +6628,7 @@ ElementsTable.Keybind = (function()
 		Keybind.Elements = KeybindFrame
 
 		local KeybindDisplayLabel = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+			FontFace = Font.new("rbxasset://fonts/families/SourceSans.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
 			Text = Config.Default,
 			TextColor3 = Color3.fromRGB(240, 240, 240),
 			TextSize = 13,
@@ -6884,29 +6876,30 @@ ElementsTable.Colorpicker = (function()
 			end
 
 			local function CreateInputLabel(Text, Pos)
-    return New("TextLabel", {
-        FontFace = Font.new(
-            "rbxasset://fonts/families/SourceSansPro.json",
-            Enum.FontWeight.Bold,
-            Enum.FontStyle.Normal
-        ),
+				return New("TextLabel", {
+					FontFace = Font.new(
+						"rbxasset://fonts/families/SourceSans.json",
+						Enum.FontWeight.Medium,
+						Enum.FontStyle.Normal
+					),
+					Text = Text,
+					TextColor3 = Color3.fromRGB(240, 240, 240),
+					TextSize = 13,
+					TextXAlignment = Enum.TextXAlignment.Left,
+					Size = UDim2.new(1, 0, 0, 32),
+					Position = Pos,
+					BackgroundTransparency = 1,
+					Parent = Dialog.Root,
+					ThemeTag = {
+						TextColor3 = "Text",
+					},
+				})
+			end
 
-        Text = Text,
-        TextColor3 = Color3.fromRGB(240, 240, 240),
-        TextSize = 13,
-        TextXAlignment = Enum.TextXAlignment.Left,
-
-        Size = UDim2.new(1, 0, 0, 32),
-        Position = Pos,
-
-        BackgroundTransparency = 1,
-        Parent = Dialog.Root,
-
-        ThemeTag = {
-            TextColor3 = "Text",
-        },
-    })
-end
+			local function GetRGB()
+				local Value = Color3.fromHSV(Hue, Sat, Vib)
+				return { R = math.floor(Value.r * 255), G = math.floor(Value.g * 255), B = math.floor(Value.b * 255) }
+			end
 
 			local SatCursor = New("ImageLabel", {
 				Size = UDim2.new(0, 18, 0, 18),
