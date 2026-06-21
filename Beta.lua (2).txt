@@ -2231,19 +2231,6 @@ Components.Element = (function()
 			},
 		})
 
-		Element.Header = New("Frame", {
-			AutomaticSize = Enum.AutomaticSize.Y,
-			BackgroundTransparency = 1,
-			Size = UDim2.new(1, 0, 0, 14),
-		}, {
-			New("UIListLayout", {
-				Padding = UDim.new(0, 5),
-				FillDirection = Enum.FillDirection.Horizontal,
-				SortOrder = Enum.SortOrder.LayoutOrder,
-				VerticalAlignment = Enum.VerticalAlignment.Center,
-			}),
-		})
-
 		if Options and Options.Icon then
 			local iconImage = Options.Icon
 			pcall(function()
@@ -2261,10 +2248,8 @@ Components.Element = (function()
 					ImageColor3 = "Text",
 				},
 			})
-			Element.IconImage.Parent = Element.Header
 		end
 
-		Element.TitleLabel.Parent = Element.Header
 
 		Element.DescLabel = New("TextLabel", {
 			FontFace = Font.new("rbxasset://fonts/families/SourceSans.json", Enum.FontWeight.Bold),
@@ -2297,7 +2282,6 @@ Components.Element = (function()
 				PaddingBottom = UDim.new(0, 13),
 				PaddingTop = UDim.new(0, 13),
 			}),
-			Element.Header,
 			Element.DescLabel,
 		})
 
@@ -2334,7 +2318,6 @@ Components.Element = (function()
 		function Element:SetTitle(Set)
 			Element.TitleLabel.Text = Set
 			local hasTitle = (Set ~= nil and Set ~= "")
-			Element.Header.Visible = hasTitle
 
 			if not hasTitle then
 				if Element.IconImage then
@@ -2440,7 +2423,6 @@ Components.Element = (function()
 			Element.Frame:Destroy()
 		end
 
-		Element.Header.Visible = not (Title == nil or Title == "")
 
 		Element:SetTitle(Title or "")
 		Element:SetDesc(Desc)
