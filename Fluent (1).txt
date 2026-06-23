@@ -944,7 +944,7 @@ BackgroundColor3 = 'DialogHolderLine'
 L_198_.ButtonHolder
 })
 L_198_.Title = L_193_('TextLabel', {
-FontFace = Font.new('rbxasset://fonts/families/SourceSansPro.json', Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+FontFace = Font.new('rbxasset://fonts/families/SourceSansPro.json', Enum.FontWeight.Heavy, Enum.FontStyle.Normal),
 Text = 'Dialog',
 TextColor3 = Color3.fromRGB(240, 240, 240),
 TextSize = 22,
@@ -1033,7 +1033,7 @@ local L_221_, L_222_ = L_220_.New, L_219_.Spring.new
 return function(L_223_arg0, L_224_arg1, L_225_arg2, L_226_arg3)
 local L_227_ = {}
 L_227_.TitleLabel = L_221_('TextLabel', {
-FontFace = Font.new('rbxasset://fonts/families/SourceSansPro.json', Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+FontFace = Font.new('rbxasset://fonts/families/SourceSansPro.json', Enum.FontWeight.Heavy, Enum.FontStyle.Normal),
 Text = L_223_arg0,
 TextColor3 = Color3.fromRGB(240, 240, 240),
 TextSize = 13,
@@ -1355,7 +1355,7 @@ L_266_('TextLabel', {
 RichText = true,
 Text = L_267_arg0,
 TextTransparency = 0,
-FontFace = Font.new('rbxassetid://12187365364', Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+FontFace = Font.new('rbxassetid://12187365364', Enum.FontWeight.Heavy, Enum.FontStyle.Normal),
 TextSize = 18,
 TextXAlignment = 'Left',
 TextYAlignment = 'Center',
@@ -1426,7 +1426,7 @@ Text = L_289_arg1,
 RichText = true,
 TextColor3 = Color3.fromRGB(255, 255, 255),
 TextTransparency = 0,
-FontFace = Font.new('rbxasset://fonts/families/SourceSansPro.json', Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+FontFace = Font.new('rbxasset://fonts/families/SourceSansPro.json', Enum.FontWeight.Heavy, Enum.FontStyle.Normal),
 TextSize = 12,
 TextXAlignment = 'Left',
 TextYAlignment = 'Center',
@@ -1728,7 +1728,7 @@ SortOrder = Enum.SortOrder.LayoutOrder
 L_338_('TextLabel', {
 RichText = true,
 Text = L_340_arg0.Title,
-FontFace = Font.new('rbxasset://fonts/families/SourceSansPro.json', Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+FontFace = Font.new('rbxasset://fonts/families/SourceSansPro.json', Enum.FontWeight.Heavy, Enum.FontStyle.Normal),
 TextSize = 12,
 TextXAlignment = 'Left',
 TextYAlignment = 'Center',
@@ -1743,7 +1743,7 @@ L_338_('TextLabel', {
 RichText = true,
 Text = L_340_arg0.SubTitle,
 TextTransparency = 0.4,
-FontFace = Font.new('rbxasset://fonts/families/SourceSansPro.json', Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+FontFace = Font.new('rbxasset://fonts/families/SourceSansPro.json', Enum.FontWeight.Heavy, Enum.FontStyle.Normal),
 TextSize = 12,
 TextXAlignment = 'Left',
 TextYAlignment = 'Center',
@@ -1843,7 +1843,7 @@ L_371_.TabDisplay = L_368_('TextLabel', {
 RichText = true,
 Text = 'Tab',
 TextTransparency = 0,
-FontFace = Font.new('rbxassetid://12187365364', Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+FontFace = Font.new('rbxassetid://12187365364', Enum.FontWeight.Heavy, Enum.FontStyle.Normal),
 TextSize = 28,
 TextXAlignment = 'Left',
 TextYAlignment = 'Center',
@@ -2340,7 +2340,7 @@ L_558_.Frame.Size = UDim2.new(0, 90, 0, 32)
 return L_558_
 end, function(L_559_arg0, L_560_arg1)
 return L_512_('TextLabel', {
-FontFace = Font.new('rbxasset://fonts/families/SourceSansPro.json', Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+FontFace = Font.new('rbxasset://fonts/families/SourceSansPro.json', Enum.FontWeight.Heavy, Enum.FontStyle.Normal),
 Text = L_559_arg0,
 TextColor3 = Color3.fromRGB(240, 240, 240),
 TextSize = 13,
@@ -2719,7 +2719,7 @@ L_627_.DescLabel.Size = UDim2.new(1, -170, 0, 14)
 L_626_.SetTitle = L_627_.SetTitle
 L_626_.SetDesc = L_627_.SetDesc
 local L_628_, L_629_ = L_619_('TextLabel', {
-FontFace = Font.new('rbxasset://fonts/families/SourceSansPro.json', Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+FontFace = Font.new('rbxasset://fonts/families/SourceSansPro.json', Enum.FontWeight.Heavy, Enum.FontStyle.Normal),
 Text = 'Value',
 TextColor3 = Color3.fromRGB(240, 240, 240),
 TextSize = 13,
@@ -3187,7 +3187,7 @@ end
 L_739_.SetTitle = L_741_.SetTitle
 L_739_.SetDesc = L_741_.SetDesc
 local L_742_ = L_732_('TextLabel', {
-FontFace = Font.new('rbxasset://fonts/families/SourceSansPro.json', Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+FontFace = Font.new('rbxasset://fonts/families/SourceSansPro.json', Enum.FontWeight.Heavy, Enum.FontStyle.Normal),
 Text = L_737_arg2.Default,
 TextColor3 = Color3.fromRGB(240, 240, 240),
 TextSize = 13,
