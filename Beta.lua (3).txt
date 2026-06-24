@@ -2217,7 +2217,7 @@ Components.Element = (function()
 		local Options = Options or {}
 
 		Element.TitleLabel = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+			FontFace = Font.new("rbxasset://fonts/families/Ubuntu.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
 			Text = Title,
 			TextColor3 = Color3.fromRGB(240, 240, 240),
 			TextSize = 13,
@@ -2267,7 +2267,7 @@ Components.Element = (function()
 		Element.TitleLabel.Parent = Element.Header
 
 		Element.DescLabel = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+			FontFace = Font.new("rbxasset://fonts/families/Ubuntu.json"),
 			Text = Desc,
 			TextColor3 = Color3.fromRGB(200, 200, 200),
 			TextSize = 12,
@@ -2637,7 +2637,7 @@ Components.Tab = (function()
 				TextColor3 = Color3.fromRGB(255, 255, 255),
 				TextTransparency = 0,
 				FontFace = Font.new(
-					"rbxasset://fonts/families/SourceSansPro.json",
+					"rbxasset://fonts/families/Ubuntu.json",
 					Enum.FontWeight.Bold,
 					Enum.FontStyle.Normal
 				),
@@ -2858,7 +2858,7 @@ Components.Tab = (function()
 					RichText = true,
 					TextColor3 = Color3.fromRGB(255, 255, 255),
 					TextTransparency = 0,
-					FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+					FontFace = Font.new("rbxasset://fonts/families/Ubuntu.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
 					TextSize = 12,
 					TextXAlignment = "Left",
 					TextYAlignment = "Center",
@@ -3301,7 +3301,7 @@ Components.Button = (function()
 		local Button = {}
 
 		Button.Title = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+			FontFace = Font.new("rbxasset://fonts/families/Ubuntu.json"),
 			TextColor3 = Color3.fromRGB(200, 200, 200),
 			TextSize = 14,
 			TextWrapped = true,
@@ -3430,7 +3430,7 @@ Components.Dialog = (function()
 
 		NewDialog.Title = New("TextLabel", {
 			FontFace = Font.new(
-				"rbxasset://fonts/families/SourceSansPro.json",
+				"rbxasset://fonts/families/Ubuntu.json",
 				Enum.FontWeight.Bold,
 				Enum.FontStyle.Normal
 			),
@@ -3570,7 +3570,7 @@ Components.Notification = (function()
 			RichText = true,
 			TextColor3 = Color3.fromRGB(255, 255, 255),
 			TextTransparency = 0,
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+			FontFace = Font.new("rbxasset://fonts/families/Ubuntu.json"),
 			TextSize = 13,
 			TextXAlignment = "Left",
 			TextYAlignment = "Center",
@@ -3583,7 +3583,7 @@ Components.Notification = (function()
 		})
 
 		NewNotification.ContentLabel = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+			FontFace = Font.new("rbxasset://fonts/families/Ubuntu.json"),
 			Text = Config.Content,
 			TextColor3 = Color3.fromRGB(240, 240, 240),
 			TextSize = 14,
@@ -3599,7 +3599,7 @@ Components.Notification = (function()
 		})
 
 		NewNotification.SubContentLabel = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+			FontFace = Font.new("rbxasset://fonts/families/Ubuntu.json"),
 			Text = Config.SubContent,
 			TextColor3 = Color3.fromRGB(240, 240, 240),
 			TextSize = 14,
@@ -3772,7 +3772,7 @@ Components.Textbox = (function()
 		local Textbox = {}
 
 		Textbox.Input = New("TextBox", {
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+			FontFace = Font.new("rbxasset://fonts/families/Ubuntu.json"),
 			TextColor3 = Color3.fromRGB(200, 200, 200),
 			TextSize = 14,
 			TextXAlignment = Enum.TextXAlignment.Left,
@@ -3989,7 +3989,7 @@ Components.TitleBar = (function()
 					RichText = true,
 					Text = Config.Title,
 					FontFace = Font.new(
-						"rbxasset://fonts/families/SourceSansPro.json",
+						"rbxasset://fonts/families/Ubuntu.json",
 						Enum.FontWeight.Bold,
 						Enum.FontStyle.Normal
 					),
@@ -4009,7 +4009,7 @@ Components.TitleBar = (function()
 					Text = Config.SubTitle,
 					TextTransparency = 0.4,
 					FontFace = Font.new(
-						"rbxasset://fonts/families/SourceSansPro.json",
+						"rbxasset://fonts/families/Ubuntu.json",
 						Enum.FontWeight.Bold,
 						Enum.FontStyle.Normal
 					),
@@ -4417,7 +4417,7 @@ Components.Window = (function()
 		})
 
 		local SearchInput = New("TextBox", {
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+			FontFace = Font.new("rbxasset://fonts/families/Ubuntu.json"),
 			TextColor3 = Color3.fromRGB(200, 200, 200),
 			TextSize = 13,
 			TextXAlignment = Enum.TextXAlignment.Left,
@@ -4688,7 +4688,7 @@ Components.Window = (function()
 				BackgroundTransparency = 1,
 				TextXAlignment = Enum.TextXAlignment.Left,
 				TextYAlignment = Enum.TextYAlignment.Bottom,
-				FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+				FontFace = Font.new("rbxasset://fonts/families/Ubuntu.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
 				TextSize = 13,
 				Text = titleText,
 				Size = UDim2.new(1, -avatarSize - 12, 0.5, 0),
@@ -4702,7 +4702,7 @@ Components.Window = (function()
 				BackgroundTransparency = 1,
 				TextXAlignment = Enum.TextXAlignment.Left,
 				TextYAlignment = Enum.TextYAlignment.Top,
-				FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+				FontFace = Font.new("rbxasset://fonts/families/Ubuntu.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
 				TextSize = 12,
 				TextTransparency = 0.2,
 				Text = subtitleText,
@@ -5154,7 +5154,7 @@ Components.Window = (function()
 			})
 
 			local Content = New("TextLabel", {
-				FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+				FontFace = Font.new("rbxasset://fonts/families/Ubuntu.json"),
 				Text = Config.Content,
 				TextColor3 = Color3.fromRGB(240, 240, 240),
 				TextSize = 14,
@@ -5397,7 +5397,7 @@ ElementsTable.Dropdown = (function()
 		local container = self.Container
 
 		local DropdownDisplay = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+			FontFace = Font.new("rbxasset://fonts/families/Ubuntu.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
 			Text = "",
 			TextColor3 = Color3.fromRGB(240, 240, 240),
 			TextSize = 14,
@@ -5491,7 +5491,7 @@ ElementsTable.Dropdown = (function()
 			})
 
 			SearchBox = New("TextBox", {
-				FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+				FontFace = Font.new("rbxasset://fonts/families/Ubuntu.json"),
 				TextColor3 = Color3.fromRGB(200, 200, 200),
 				TextSize = 13,
 				TextXAlignment = Enum.TextXAlignment.Left,
@@ -6010,7 +6010,7 @@ ElementsTable.Dropdown = (function()
 				})
 
 				local ButtonLabel = New("TextLabel", {
-					FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+					FontFace = Font.new("rbxasset://fonts/families/Ubuntu.json"),
 					Text = Value,
 					TextColor3 = Color3.fromRGB(200, 200, 200),
 					TextSize = 13,
@@ -6304,7 +6304,7 @@ ElementsTable.Slider = (function()
 		})
 
 		local SliderDisplay = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+			FontFace = Font.new("rbxasset://fonts/families/Ubuntu.json"),
 			Text = "Value",
 			TextSize = 12,
 			TextWrapped = true,
@@ -6320,7 +6320,7 @@ ElementsTable.Slider = (function()
 		})
 
 		local SliderInput = New("TextBox", {
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json"),
+			FontFace = Font.new("rbxasset://fonts/families/Ubuntu.json"),
 			Text = "",
 			TextSize = 12,
 			TextXAlignment = Enum.TextXAlignment.Right,
@@ -6628,7 +6628,7 @@ ElementsTable.Keybind = (function()
 		Keybind.Elements = KeybindFrame
 
 		local KeybindDisplayLabel = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+			FontFace = Font.new("rbxasset://fonts/families/Ubuntu.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
 			Text = Config.Default,
 			TextColor3 = Color3.fromRGB(240, 240, 240),
 			TextSize = 13,
@@ -6878,7 +6878,7 @@ ElementsTable.Colorpicker = (function()
 			local function CreateInputLabel(Text, Pos)
 				return New("TextLabel", {
 					FontFace = Font.new(
-						"rbxasset://fonts/families/SourceSansPro.json",
+						"rbxasset://fonts/families/Ubuntu.json",
 						Enum.FontWeight.Medium,
 						Enum.FontStyle.Normal
 					),
