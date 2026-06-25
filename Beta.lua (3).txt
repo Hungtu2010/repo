@@ -39,7 +39,6 @@ local ProtectGui = protectgui or (syn and syn.protect_gui) or function() end
 local Themes = {
 	Names = {
 		"Dark",
-		"Midnight Blue"
 	},
 	Darker = {
 		Name = "Dark",
@@ -65,64 +64,7 @@ local Themes = {
 		DialogBorder = Color3.fromRGB(50, 50, 50),
 		DialogInput = Color3.fromRGB(45, 45, 45),
 		DialogInputLine = Color3.fromRGB(120, 120, 120),
-	},
-MidnightBlue = {
-	Name = "Midnight Blue",
-	Accent = Color3.fromRGB(120, 170, 255),
-
-	AcrylicMain = Color3.fromRGB(14, 18, 28),
-	AcrylicBorder = Color3.fromRGB(32, 38, 54),
-	AcrylicGradient = ColorSequence.new(
-		Color3.fromRGB(14, 18, 28),
-		Color3.fromRGB(22, 27, 40)
-	),
-	AcrylicNoise = 0.9,
-
-	TitleBarLine = Color3.fromRGB(40, 48, 66),
-
-	Tab = Color3.fromRGB(26, 32, 45),
-
-	Element = Color3.fromRGB(20, 25, 36),
-	ElementBorder = Color3.fromRGB(35, 42, 58),
-	InElementBorder = Color3.fromRGB(55, 64, 88),
-	ElementTransparency = 0.9,
-
-	ToggleSlider = Color3.fromRGB(45, 52, 72),
-	ToggleToggled = Color3.fromRGB(120, 170, 255),
-
-	SliderRail = Color3.fromRGB(45, 52, 72),
-
-	DropdownFrame = Color3.fromRGB(18, 23, 34),
-	DropdownHolder = Color3.fromRGB(15, 20, 30),
-	DropdownBorder = Color3.fromRGB(35, 42, 58),
-	DropdownOption = Color3.fromRGB(30, 36, 50),
-
-	Keybind = Color3.fromRGB(35, 42, 58),
-
-	Input = Color3.fromRGB(30, 36, 50),
-	InputFocused = Color3.fromRGB(20, 25, 36),
-	InputIndicator = Color3.fromRGB(70, 80, 105),
-	InputIndicatorFocus = Color3.fromRGB(120, 170, 255),
-
-	Dialog = Color3.fromRGB(16, 20, 30),
-	DialogHolder = Color3.fromRGB(14, 18, 28),
-	DialogHolderLine = Color3.fromRGB(35, 42, 58),
-
-	DialogButton = Color3.fromRGB(24, 30, 42),
-	DialogButtonBorder = Color3.fromRGB(45, 52, 72),
-
-	DialogBorder = Color3.fromRGB(35, 42, 58),
-
-	DialogInput = Color3.fromRGB(24, 30, 42),
-	DialogInputLine = Color3.fromRGB(70, 80, 105),
-
-	Text = Color3.fromRGB(255, 255, 255),
-	SubText = Color3.fromRGB(180, 190, 210),
-
-	Hover = Color3.fromRGB(40, 48, 66),
-	HoverChange = 0.04
-}
-
+	}
 }
 
 local Library = {
