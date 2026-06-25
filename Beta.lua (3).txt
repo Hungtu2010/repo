@@ -38,6 +38,7 @@ local ProtectGui = protectgui or (syn and syn.protect_gui) or function() end
 
 local Themes = {
 	Names = {
+	    "Nagare",
 		"Dark",
 		"Darker", 
 		"AMOLED",
@@ -58,6 +59,31 @@ local Themes = {
 		"Bloody",
 		"Arctic"
 	},
+	Nagare = {
+    Name = "Nagare",
+    Accent = Color3.fromRGB(0, 162, 255), -- Màu xanh sáng của thanh chọn và icon trong ảnh
+    AcrylicMain = Color3.fromRGB(20, 20, 20), -- Nền chính tối, sâu hơn
+    AcrylicBorder = Color3.fromRGB(50, 50, 50),
+    AcrylicGradient = ColorSequence.new(Color3.fromRGB(25, 25, 25), Color3.fromRGB(20, 20, 20)),
+    AcrylicNoise = 0.85, -- Giảm bớt hạt nhiễu để nhìn UI trong suốt và mượt hơn như ảnh
+    TitleBarLine = Color3.fromRGB(45, 45, 45),
+    Tab = Color3.fromRGB(200, 200, 200), -- Màu chữ của Tab sáng rõ hơn
+    Element = Color3.fromRGB(35, 35, 35), -- Các ô tính năng (Farm Settings, Auto Farm...)
+    ElementBorder = Color3.fromRGB(45, 45, 45),
+    InElementBorder = Color3.fromRGB(60, 60, 60),
+    ElementTransparency = 0.75, -- Độ trong suốt của phần tử để nhìn xuyên thấu nền game tốt hơn
+    DropdownFrame = Color3.fromRGB(30, 30, 30), -- Khung Dropdown menu mở rộng giống trong ảnh
+    DropdownHolder = Color3.fromRGB(25, 25, 25),
+    DropdownBorder = Color3.fromRGB(40, 40, 40),
+    Dialog = Color3.fromRGB(30, 30, 30),
+    DialogHolder = Color3.fromRGB(22, 22, 22),
+    DialogHolderLine = Color3.fromRGB(35, 35, 35),
+    DialogButton = Color3.fromRGB(30, 30, 30),
+    DialogButtonBorder = Color3.fromRGB(45, 45, 45),
+    DialogBorder = Color3.fromRGB(45, 45, 45),
+    DialogInput = Color3.fromRGB(40, 40, 40),
+    DialogInputLine = Color3.fromRGB(0, 162, 255),
+},
 	Dark = {
 		Name = "Dark",
 		Accent = Color3.fromRGB(96, 205, 255),
