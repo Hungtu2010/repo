@@ -107,7 +107,7 @@ local Themes = {
 }
 
 local Library = {
-	Version = "Beta",
+	Prem = '<font color="rgb(255,215,0)">Premium</font>',
 
 	OpenFrames = {},
 	Options = {},
