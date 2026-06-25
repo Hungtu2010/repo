@@ -40,7 +40,7 @@ local Themes = {
 	Names = {
 		"Dark",
 	},
-	Darker = {
+	Dark = {
 		Name = "Dark",
 		Accent = Color3.fromRGB(56, 109, 223),
 		AcrylicMain = Color3.fromRGB(30, 30, 30),
