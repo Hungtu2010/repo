@@ -1,0 +1,73 @@
+local Fluent, SaveManager, InterfaceManager =
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Hungtu2010/repo/main/Beta.lua%20(3).txt"))()
+
+local Window = Fluent:CreateWindow({
+    Title = "Fluent Plus Example",
+    SubTitle = "by YourName",
+    TabWidth = 170,
+    Size = UDim2.fromOffset(560, 360),
+    Acrylic = true,
+    Theme = "Dark",
+    MinimizeKey = Enum.KeyCode.LeftControl
+})
+
+local Tabs = {
+    Main = Window:AddTab({ Title = "Main", Icon = "home" }),
+    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
+}
+
+local Options = Fluent.Options
+
+do -- Main Tab
+    Tabs.Main:AddParagraph({
+        Title = "Welcome",
+        Content = "This is an example script using Fluent Plus."
+    })
+
+    Tabs.Main:AddToggle("AutoFarm", {Title = "Auto Farm", Default = false })
+    
+    Tabs.Main:AddSlider("WalkSpeed", {
+        Title = "WalkSpeed",
+        Description = "Adjust player speed",
+        Default = 16,
+        Min = 16,
+        Max = 100,
+        Rounding = 1,
+        Callback = function(Value)
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+        end
+    })
+    
+    Tabs.Main:AddDropdown("Weapon", {
+        Title = "Select Weapon",
+        Values = {"Sword", "Bow", "Magic"},
+        Multi = false,
+        Default = "Sword",
+    })
+end
+
+do -- Settings Tab
+    InterfaceManager:BuildInterfaceSection(Tabs.Settings)
+    SaveManager:BuildConfigSection(Tabs.Settings)
+end
+
+Window:SelectTab(1)
+
+Fluent:Notify({
+    Title = "Fluent Plus",
+    Content = "Script Loaded Successfully",
+    Duration = 8
+})
+
+-- Handle SaveManager
+SaveManager:SetLibrary(Fluent)
+InterfaceManager:SetLibrary(Fluent)
+
+-- Ignore specific keys
+SaveManager:IgnoreThemeSettings()
+
+-- Use auto-loading
+SaveManager:SetFolder("FluentScriptHub")
+SaveManager:BuildConfigSection(Tabs.Settings)
+
+Window:SelectTab(1)
