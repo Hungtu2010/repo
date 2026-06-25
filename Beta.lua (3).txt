@@ -5178,23 +5178,21 @@ ElementsTable.Dropdown = (function()
 			RecalculateListPosition()
 		end)
 
-		Creator.AddSignal(DropdownInner.MouseButton1Click, function()
-			if Dropdown.Opened then
-				Dropdown:Close()
-			else
-				Dropdown:Open()
-			end
-		end)
+		local function toggleDropdown()
+    if Dropdown.Opened then
+        Dropdown:Close()
+    else
+        Dropdown:Open()
+    end
+end
 
-		Creator.AddSignal(DropdownInner.InputBegan, function(Input)
-			if Input.UserInputType == Enum.UserInputType.Touch then
-				if Dropdown.Opened then
-					Dropdown:Close()
-				else
-					Dropdown:Open()
-				end
-			end
-		end)
+Creator.AddSignal(DropdownInner.MouseButton1Click, toggleDropdown)
+Creator.AddSignal(DropdownInner.InputBegan, function(Input)
+    if Input.UserInputType == Enum.UserInputType.Touch then
+        task.wait(0.05)
+        toggleDropdown()
+    end
+end)
 
 		Creator.AddSignal(DropdownDisplay:GetPropertyChangedSignal("Text"), function()
 			for _, Element in next, DropdownScrollFrame:GetChildren() do
@@ -5206,23 +5204,27 @@ ElementsTable.Dropdown = (function()
 			RecalculateListSize()
 		end)
 
-		Creator.AddSignal(UserInputService.InputBegan, function(Input)
-			if
-				Input.UserInputType == Enum.UserInputType.MouseButton1
-				or Input.UserInputType == Enum.UserInputType.Touch
-			then
-				local mousePos = Input.UserInputType == Enum.UserInputType.MouseButton1 and Vector2.new(Mouse.X, Mouse.Y) or Input.Position
-				local AbsPos, AbsSize = DropdownHolderFrame.AbsolutePosition, DropdownHolderFrame.AbsoluteSize
-				local innerAbsPos, innerAbsSize = DropdownInner.AbsolutePosition, DropdownInner.AbsoluteSize
-				
-				local clickedInsideDropdown = mousePos.X >= AbsPos.X and mousePos.X <= AbsPos.X + AbsSize.X and mousePos.Y >= AbsPos.Y and mousePos.Y <= AbsPos.Y + AbsSize.Y
-				local clickedInsideInner = mousePos.X >= innerAbsPos.X and mousePos.X <= innerAbsPos.X + innerAbsSize.X and mousePos.Y >= innerAbsPos.Y and mousePos.Y <= innerAbsPos.Y + innerAbsSize.Y
-				
-				if not clickedInsideDropdown and not clickedInsideInner then
-					Dropdown:Close()
-				end
-			end
-		end)
+		local function isPointInFrame(point, frame)
+    if not frame then return false end
+    local pos = frame.AbsolutePosition
+    local size = frame.AbsoluteSize
+    return point.X >= pos.X and point.X <= pos.X + size.X and
+           point.Y >= pos.Y and point.Y <= pos.Y + size.Y
+end
+
+Creator.AddSignal(UserInputService.InputBegan, function(Input)
+    if Input.UserInputType == Enum.UserInputType.MouseButton1 or 
+       Input.UserInputType == Enum.UserInputType.Touch then
+        
+        local touchPos = Input.Position
+        
+        if not isPointInFrame(touchPos, DropdownHolderFrame) and 
+           not isPointInFrame(touchPos, DropdownInner) and 
+           Dropdown.Opened then
+            Dropdown:Close()
+        end
+    end
+end)
 
 		local ScrollFrame = self.ScrollFrame
 		function Dropdown:Open()
